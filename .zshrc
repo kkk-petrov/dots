@@ -106,14 +106,10 @@ export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias tg='$HOME/Downloads/Telegram/Updater'
+
 alias p='sudo pacman -S'
 
 alias webstorm='$HOME/Downloads/webstorm/bin/webstorm.sh'
-alias rustrover='$HOME/Downloads/rustrover/bin/rustrover.sh'
-alias gogo='$HOME/Downloads/GoLand-2023.2.4/bin/goland.sh'
-
-alias jtool='$HOME/Downloads/JetbrainsToolbox/jetbrains-toolbox'
 alias obsidian='$HOME/Downloads/Obsidian-1.4.16.AppImage'
 alias postman='$HOME/Downloads/Postman/Postman'
 

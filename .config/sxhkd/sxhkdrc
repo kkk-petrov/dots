@@ -141,3 +141,36 @@ super + space
 
 ctrl + super + s
   flameshot gui 
+
+ctrl + shift + super + s
+  flameshot full 
+
+# Audio controls
+
+# increase
+XF86AudioRaiseVolume
+  pactl set-sink-volume @DEFAULT_SINK@ +5%
+  # 0x1008ff13
+
+# decrease
+XF86AudioLowerVolume
+  pactl set-sink-volume @DEFAULT_SINK@ -5%
+  # 0x1008ff11
+
+# toggle mute
+XF86AudioMute
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+  # 0x1008ff12
+
+# next track
+XF86AudioNext
+  playerctl next
+
+# next track
+XF86AudioPrev
+  playerctl previous
+
+# toggle play
+XF86AudioPlay
+  playerctl play-pause
+  

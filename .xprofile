@@ -1,0 +1,11 @@
+# wallpaper
+nitrogen --random --set-zoom-fill &
+
+# compositor
+picom -f &
+
+# screen resolution
+xrandr --output Virtual-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+ 
+# keybindings
+xbindkeys -p

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dotfiles directory
-DOTFILES_DIR="$HOME/repos/dots-local"
+DOTFILES_DIR="$HOME/repos/dots"
 
 backup_dotfiles() {
 	echo "Backing up existing dotfiles..."
@@ -35,7 +35,7 @@ backup_dotfiles() {
 
 install_dotfiles() {
 	echo "Installing dotfiles..."
-	rsync -av --exclude='.git' --exclude='install.sh' $DOTFILES_DIR/ $HOME/
+	rsync -av --exclude='.git' --exclude='install.sh' --exclude='README.md' $DOTFILES_DIR/ $HOME/
 	echo "Dotfiles installed successfully."
 }
 

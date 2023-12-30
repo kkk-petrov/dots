@@ -1,9 +1,6 @@
 #! /bin/sh
 # autostart
 pgrep -x sxhkd >/dev/null || sxhkd &
-# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-# setxkbmap -model pc104 -layout us,ua,ru -option grp:caps_toggle &
-numlockx off &
 $HOME/.config/polybar/launch.sh
 
 # config

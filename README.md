@@ -26,7 +26,7 @@ This script is designed to help you manage and install your dotfiles easily. It 
 
 ## Important Note
 
-- This script assumes that your dotfiles are stored in the `dots-local` directory. Adjust the `DOTFILES_DIR` variable in the script if your dotfiles are in a different location.
+- This script assumes that your dotfiles are stored in the `dots` directory. Adjust the `DOTFILES_DIR` variable in the script if your dotfiles are in a different location.
 
 - The script will create a backup of existing dotfiles in the `dotfiles_backup` directory in your home directory.
 

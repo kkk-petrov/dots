@@ -6,7 +6,7 @@ This script is designed to help you manage and install your dotfiles easily. It 
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/dots-local.git ~/repos/dots
+   git clone https://github.com/kkk-petrov/dots.git ~/repos/dots
    ```
 
 2. **Navigate to the Script Directory:**

@@ -1,37 +1,48 @@
-# Dotfiles Install Script
+# Dotfiles Overview
 
-This script is designed to help you manage and install your dotfiles easily. It includes features for backing up existing dotfiles and installing new ones from a specified directory.
+This repository contains my personal dotfiles, including configurations for various tools and applications. Dotfiles are configuration files for customizing the behavior and appearance of software on a Unix-like system.
+
+## Preview
+![preview](./preview.png)
+
+## Included Configurations
+
+### [bspwm](https://github.com/baskerville/bspwm)
+### [sxhkd](https://github.com/baskerville/sxhkd)
+### [polybar](https://github.com/polybar/polybar)
+### [picom](https://github.com/yshui/picom)
+### [rofi](https://github.com/davatorium/rofi)
+### [nitrogen](https://github.com/l3ib/nitrogen)
+### [nvim (LazyVim)](https://github.com/LazyVim/LazyVim)
+### [alacritty](https://github.com/alacritty/alacritty)
+### [zsh](https://www.zsh.org/)
+
+### Other Configurations
+- **xprofile:** X11 user profile script for setting environment variables and running commands when the X session starts
+- **xinitrc:** X Window System initialization script. Configures the X session when starting from the console.
 
 ## Usage
-
-1. **Clone the Repository:**
+1. Clone the repository:
    ```bash
    git clone https://github.com/kkk-petrov/dots.git ~/repos/dots
    ```
 
-2. **Navigate to the Script Directory:**
+2. Navigate to the script directory:
    ```bash
    cd ~/repos/dots
    ```
 
-3. **Make the Script Executable:**
+3. Make the script executable:
    ```bash
    chmod +x install.sh
    ```
 
-4. **Run the Script:**
+4. Run the script:
    ```bash
    ./install.sh
    ```
 
-## Important Note
-
-- This script assumes that your dotfiles are stored in the `dots` directory. Adjust the `DOTFILES_DIR` variable in the script if your dotfiles are in a different location.
-
-- The script will create a backup of existing dotfiles in the `dotfiles_backup` directory in your home directory.
-
-- Customize the script according to your needs before running it. Ensure that your dotfiles are comprehensive and up-to-date in the specified directory.
+Review and customize the configurations before running the script to ensure compatibility with your system and preferences.
 
 ## Disclaimer
-
-Use this script at your own risk. It's recommended to review and understand the script's functionality before running it, especially if you have valuable configurations or data in your dotfiles.
+Use these dotfiles and the installation script at your own risk. Always review and understand the configurations before applying them to your system. Make backups of existing configurations to avoid data loss.

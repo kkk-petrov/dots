@@ -1,11 +1,14 @@
-# Dotfiles Overview
+# Overview
 
-This repository contains my personal dotfiles, including configurations for various tools and applications. Dotfiles are configuration files for customizing the behavior and appearance of software on a Unix-like system.
+This repository contains my personal configurations for various tools and applications.
 
 ## Preview
 ![preview](./preview.png)
 
-## Included Configurations
+## Dependencies
+
+Before running the installation script, ensure that the following packages are installed on your system.
+The script does not handle package installations, and missing dependencies may lead to errors or incomplete configurations.
 
 - [bspwm](https://github.com/baskerville/bspwm)
 - [sxhkd](https://github.com/baskerville/sxhkd)
@@ -17,10 +20,6 @@ This repository contains my personal dotfiles, including configurations for vari
 - [alacritty](https://github.com/alacritty/alacritty)
 - [zsh + ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/)
 - [pfetch](https://github.com/dylanaraps/pfetch)
-
-### Other Configurations
-- **xprofile:** X11 user profile script for setting environment variables and running commands when the X session starts
-- **xinitrc:** X Window System initialization script. Configures the X session when starting from the console.
 
 ## Usage
 1. Clone the repository:
@@ -43,6 +42,5 @@ This repository contains my personal dotfiles, including configurations for vari
 Review and customize the configurations before running the script to ensure compatibility with your system and preferences.
 
 ## Disclaimer
-Before running the installation script, make sure that all the required packages for the configurations are installed on your system. Refer to the documentation of each tool for specific dependencies. The script does not handle package installations, and missing dependencies may lead to errors or incomplete configurations.
 Use these dotfiles and the installation script at your own risk.
 Always review and understand the configurations before applying them to your system. Make backups of existing configurations to avoid data loss.

@@ -1,6 +1,6 @@
 # Overview
 
-This repository contains my personal configurations for various tools and applications.
+My personal configurations for various tools and applications.
 
 ## Preview
 ![preview](./preview.png)

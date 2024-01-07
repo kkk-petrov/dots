@@ -5,6 +5,10 @@ My personal configurations for various tools and applications.
 ## Preview
 ![preview](./preview.png)
 
+# Installation Script
+
+## ```ATTENTION: The script is in an experimental state, use it at your own risk!```
+
 ## Dependencies
 
 Before running the installation script, ensure that the following packages are installed on your system.
@@ -43,4 +47,4 @@ Review and customize the configurations before running the script to ensure comp
 
 ## Disclaimer
 Use these dotfiles and the installation script at your own risk.
-Always review and understand the configurations before applying them to your system. Make backups of existing configurations to avoid data loss.
+Always review the configurations before applying them to your system. Make backups of existing configurations to avoid data loss.

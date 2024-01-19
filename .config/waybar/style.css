@@ -1,0 +1,126 @@
+@define-color primary #99AEB3;
+@define-color background #151C22;
+/* @define-color background #1B2329; */
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: JetBrainsMono Nerd Font;
+  font-weight: 700;
+  font-size: 16px;
+  /* background-color: #0B161C; */
+  background: transparent;
+  border-radius: 10px;
+  /* Reduced opacity background */
+}
+
+.modules-center {
+  border-radius: 0px 0px 10px 10px;
+}
+
+.modules-right {
+  border-radius: 0px 0px 0px 10px;
+}
+
+
+.modules-left {
+  border-radius: 0px 0px 10px 0px;
+}
+
+/* .modules-center, */
+.modules-right,
+.modules-left {
+  padding: 5px;
+  background: @background;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#custom-launcher {
+  font-size: 20px;
+  color: #00bfff;
+  padding-right: 10px;
+  background-color: #1a1c2b;
+}
+
+#cpu,
+#memory,
+#temperature {
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: @primary;
+}
+
+#custom-window-name {
+  color: @primary;
+  background: transparent;
+  padding: 0px 15px;
+}
+
+#language {
+  padding-left: 15px;
+  color: @primary;
+  background: transparent;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#workspaces {
+  padding-left: 10px;
+  padding-right: 15px;
+}
+
+#workspaces button label {
+  color: @primary;
+  margin: 0px 8px;
+  background-color: #1a1c2b;
+  background: transparent;
+
+}
+
+#battery {
+  color: @primary;
+  margin: 0px 30px 0px 0px;
+}
+
+#pulseaudio {
+  font-size: 15px;
+  background: transparent;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: @primary;
+  background: transparent;
+  margin-right: 10px;
+}
+
+#network {
+  color: @primary;
+  margin-right: 10px;
+  background-color: transparent;
+}
+
+#custom-dot {
+  color: @primary;
+  padding-right: 10px;
+  background-color: transparent;
+}
+
+#custom-dot-alt {
+  color: #a5adcb;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#clock {
+  /* color: #5E8C8F; */
+  color: @primary;
+  padding-left: 20px;
+  padding-right: 16px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/*# sourceMappingURL=style.css.map */

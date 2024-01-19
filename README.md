@@ -3,8 +3,12 @@
 My personal configurations for various tools and applications.
 
 ## Preview
+### BSPWM
 ![preview-bspwm](./.preview/preview-bspwm.png)
+
+### HYPR
 ![preview-hypr](./.preview/preview-hypr.png)
+
 
 ## Dependencies
 

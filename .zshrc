@@ -9,16 +9,13 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:$HOME/go/bin"
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-
-source /home/hapka/code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PF_INFO="ascii title os kernel uptime pkgs shell wm"
-export PNPM_HOME="/home/hapka/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-if [ -f '/home/hapka/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hapka/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/home/hapka/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hapka/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 
 # pacman aliases
@@ -33,6 +30,5 @@ alias plf='sudo powerpill -Ql'                                           # list 
 alias pro='sudo plo && sudo powerpill -Rns $(powerpill -Qtdq)'           # remove orphans
 
 alias rm='trash --trash-dir ~/Trash/'
-alias vbn="/home/hapka/code/bash/volbrinotify.sh"
 
 pfetch

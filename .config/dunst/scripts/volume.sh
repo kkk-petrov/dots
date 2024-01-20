@@ -1,7 +1,5 @@
 #!/bin/bash
 
-volume=""
-
 case $1 in
 up)
 	pamixer -i 5 -u

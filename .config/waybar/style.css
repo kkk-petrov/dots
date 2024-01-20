@@ -21,12 +21,12 @@
 }
 
 .modules-right {
-  border-radius: 0px 0px 0px 10px;
+  border-radius: 0px 0px 0px 80px;
 }
 
 
 .modules-left {
-  border-radius: 0px 0px 10px 0px;
+  border-radius: 0px 0px 80px 0px;
 }
 
 /* .modules-center, */
@@ -34,7 +34,7 @@
 .modules-left {
   background: @background;
   min-width: 200px;
-  padding: 3px 0px 9px 0px;
+  padding: 4px 0px 9px 0px;
 }
 
 window#waybar {

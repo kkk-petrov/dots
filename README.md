@@ -1,17 +1,12 @@
-# Overview
-
-My personal configurations for various tools and applications.
-
 ## Preview
-### BSPWM
+### bspwm 
 ![preview-bspwm](./.preview/preview-bspwm.png)
 
-### HYPR
+### hyprland 
 ![preview-hypr](./.preview/preview-hypr.png)
 
 
 ## Dependencies
-
 Ensure that the following packages are installed on your system.
 Missing dependencies may lead to errors or incomplete configurations.
 
@@ -23,14 +18,12 @@ Missing dependencies may lead to errors or incomplete configurations.
 - [nitrogen](https://github.com/l3ib/nitrogen)
 - [nvim](https://github.com/LazyVim/LazyVim)
 - [alacritty](https://github.com/alacritty/alacritty)
-- [zsh + ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/)
+- [zsh](https://github.com/ohmyzsh/ohmyzsh/)
 - [pfetch](https://github.com/dylanaraps/pfetch)
 - [hyprland](https://github.com/hyprwm/Hyprland)
 - [hyprpaper](https://github.com/hyprwm/hyprpaper)
 - [waybar](https://github.com/Alexays/Waybar)
-
-Review and customize the configurations to ensure compatibility with your system and preferences.
+- [dunst](https://github.com/dunst-project/dunst)
 
 ## Disclaimer
-Use these dotfiles at your own risk.
 Always review the configurations before applying them to your system. Make backups of existing configurations to avoid data loss.

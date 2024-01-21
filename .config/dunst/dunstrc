@@ -1,29 +1,29 @@
 [global]
 follow = mouse
 indicate_hidden = no 
-offset = 0x10
+offset = 10x10
 notification_height = 0
-origin = top-right
-width = (200,400)
+origin = bottom-center
+width = (210,400)
 corner_radius = 10 
-timeout = 3
+timeout = 2
 separator_height = 1
 progress_bar = false
 
 padding = 13
 horizontal_padding = 32
-text_icon_padding = 10
+text_icon_padding = 20 
 frame_width = 1
 
-frame_color = "#AABEBF50"
+frame_color = "#AABEBF30"
 separator_color = frame
 
 sort = no 
 idle_threshold = 120
-font = JetBrains Mono Nerd 10 
+font = JetBrainsMono Nerd 10 
 line_height = 0
 markup = full
-alignment = center 
+alignment = left 
 vertical_alignment = center
 show_age_threshold = 60
 word_wrap = yes
@@ -49,10 +49,10 @@ foreground = "#99AEB3"
 
 [urgency_normal]
 background = "#151C22"
-foreground = "#CDD6F4"
+foreground = "#99AEB3"
 
 [urgency_critical]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
+background = "#151C22"
+foreground = "#99AEB3"
 frame_color = "#FAB387"
 

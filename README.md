@@ -19,7 +19,6 @@ Missing dependencies may lead to errors or incomplete configurations.
 - [nvim](https://github.com/LazyVim/LazyVim)
 - [alacritty](https://github.com/alacritty/alacritty)
 - [zsh](https://github.com/ohmyzsh/ohmyzsh/)
-- [pfetch](https://github.com/dylanaraps/pfetch)
 - [hyprland](https://github.com/hyprwm/Hyprland)
 - [hyprpaper](https://github.com/hyprwm/hyprpaper)
 - [waybar](https://github.com/Alexays/Waybar)

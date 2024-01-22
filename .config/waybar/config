@@ -90,8 +90,8 @@
     "tooltip": false
   },
   "custom/window-name": {
-    "format": "<b> {} </b>",
-    "interval": 1,
+    "format": "<b>{}</b>",
+    "interval": 3,
     "exec": "hyprctl activewindow | grep class | awk '{print $2}'"
   },
 }

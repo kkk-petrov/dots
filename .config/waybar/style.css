@@ -8,48 +8,49 @@
   font-size: 16px;
   /* background-color: #0B161C; */
   background: transparent;
-  border-radius: 10px;
   /* Reduced opacity background */
 }
 
 .modules-center {
-  border-radius: 0px 0px 10px 10px;
-  background: transparent;
-  opacity: 0;
+  /* border-radius: 0px 0px 10px 10px; */
+  /* opacity: 0; */
+  border-radius: 0;
+  opacity: 1;
+  min-width: 0;
 }
 
 .modules-right {
-  border-radius: 0px 0px 0px 80px;
+  /* border-radius: 0px 0px 0px 80px; */
 }
 
 
 .modules-left {
-  border-radius: 0px 0px 80px 0px;
+  /* border-radius: 0px 0px 80px 0px; */
   padding-right: 15px;
 }
 
-/* .modules-center, */
+.modules-center,
 .modules-right,
 .modules-left {
-  background: @background;
+  background: @background-light;
   min-width: 200px;
-  padding: 3px 0px 6px 0px;
+  padding: 1px 0px 2px 0px;
+  color: @primary-light;
 }
 
 window#waybar {
-  background-color: rgba(0, 0, 0, 0);
-  background: @background-alt;
+  background: @background-light;
 }
 
 #custom-window-name {
-  color: @primary;
-  background: transparent;
-  min-width: 400px;
+  color: @primary-light;
+  margin: 0px 50px;
+  min-width: 0;
 }
 
 #language {
   padding-left: 25px;
-  color: @primary;
+  color: @primary-light;
   background: transparent;
   font-weight: 600;
   font-size: 16px;
@@ -61,9 +62,8 @@ window#waybar {
   padding-right: 35px;
 }
 
-
 #workspaces button label {
-  color: @primary;
+  color: @primary-light;
   margin: 0px 8px;
   background-color: #1a1c2b;
   background: transparent;
@@ -80,7 +80,7 @@ window#waybar {
   border: none;
   outline: none;
   box-shadow: none;
-  color: @primary;
+  color: @primary-light;
   animation: none;
   transition: all 1000s ease;
   font-size: 16px;
@@ -95,7 +95,7 @@ window#waybar {
   border: none;
   outline: none;
   box-shadow: none;
-  color: @primary;
+  color: @primary-light;
   margin: 0px 8px;
   animation: none;
   transition: all 1000s ease;
@@ -106,7 +106,7 @@ window#waybar {
 }
 
 #battery {
-  color: @primary;
+  color: @primary-light;
   margin: 0px 30px 0px 0px;
 }
 
@@ -115,19 +115,19 @@ window#waybar {
   background: transparent;
   margin-top: 5px;
   margin-bottom: 5px;
-  color: @primary;
+  color: @primary-light;
   background: transparent;
   margin-right: 10px;
 }
 
 #network {
-  color: @primary;
+  color: @primary-light;
   margin-right: 10px;
   background-color: transparent;
 }
 
 #custom-dot {
-  color: @primary;
+  color: @primary-light;
   padding-right: 10px;
   background-color: transparent;
 }
@@ -140,7 +140,7 @@ window#waybar {
 
 #clock {
   /* color: #5E8C8F; */
-  color: @primary;
+  color: @primary-light;
   padding-left: 20px;
   padding-right: 35px;
   font-weight: 600;

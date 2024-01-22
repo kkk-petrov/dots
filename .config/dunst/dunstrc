@@ -6,16 +6,16 @@ notification_height = 0
 origin = bottom-center
 width = (210,400)
 corner_radius = 10 
-timeout = 2
+timeout = 5
 separator_height = 1
 progress_bar = false
 
 padding = 13
 horizontal_padding = 32
 text_icon_padding = 20 
-frame_width = 1
+frame_width = 0
 
-frame_color = "#AABEBF30"
+frame_color = "#AABEBF"
 separator_color = frame
 
 sort = no 
@@ -44,15 +44,13 @@ title = Dunst
 class = Dunst
 
 [urgency_low]
-background = "#151C22"
-foreground = "#99AEB3"
+background = "#99AEB3"
+foreground = "#151C22"
 
 [urgency_normal]
-background = "#151C22"
-foreground = "#99AEB3"
+background = "#99AEB3"
+foreground = "#151C22"
 
 [urgency_critical]
-background = "#151C22"
-foreground = "#99AEB3"
-frame_color = "#FAB387"
-
+background = "#99AEB3"
+foreground = "#151C22"

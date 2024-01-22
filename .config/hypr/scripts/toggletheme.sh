@@ -1,5 +1,4 @@
 #!/bin/bash
-
 ALACRITTY_MAIN_CONFIG="$HOME/.config/alacritty/alacritty.toml"
 ALACRITTY_THEME_CURRENT="$HOME/.config/alacritty/theme.toml"
 ALACRITTY_THEME_LIGHT="$HOME/.config/alacritty/themes/light.toml"
@@ -41,50 +40,14 @@ toggle_theme() {
 
 main() {
 	toggle_theme
-	toggle_wallpaper
 	toggle_alacritty_theme
+	toggle_wallpaper
 	toggle_waybar_theme
 	toggle_nvim_theme
 	toggle_rofi_theme
 	toggle_icons
 	toggle_dunst_theme
-}
-
-toggle_waybar_theme() {
-	if [[ $current_theme == "dark" ]]; then
-		sed -i "s/${WAYBAR_PRIMARY_LIGHT}/${WAYBAR_PRIMARY_DARK}/gI" $WAYBAR
-		sed -i "s/${WAYBAR_BACKGROUND_LIGHT}/${WAYBAR_BACKGROUND_DARK}/gI" $WAYBAR
-		sed -i "s/${WAYBAR_BACKGROUND_LIGHT_ALT}/${WAYBAR_BACKGROUND_DARK_ALT}/gI" $WAYBAR
-		reload_waybar
-	else
-		sed -i "s/${WAYBAR_PRIMARY_DARK}/${WAYBAR_PRIMARY_LIGHT}/gI" $WAYBAR
-		sed -i "s/${WAYBAR_BACKGROUND_DARK}/${WAYBAR_BACKGROUND_LIGHT}/gI" $WAYBAR
-		sed -i "s/${WAYBAR_BACKGROUND_DARK_ALT}/${WAYBAR_BACKGROUND_LIGHT_ALT}/gI" $WAYBAR
-		reload_waybar
-	fi
-}
-
-reload_waybar() {
-	killall waybar
-	waybar &
-}
-
-toggle_nvim_theme() {
-	if [[ $current_theme == "dark" ]]; then
-		sed -i "s/${NVIM_THEME_LIGHT}/${NVIM_THEME_DARK}/gI" $VIMRC
-	else
-		sed -i "s/${NVIM_THEME_DARK}/${NVIM_THEME_LIGHT}/gI" $VIMRC
-	fi
-
-	touch $VIMRC
-}
-
-toggle_wallpaper() {
-	if [[ $current_theme == "dark" ]]; then
-		swww img $WALLPAPER_LIGHT $WALLPAPER_TRANSITION_TYPE
-	else
-		swww img $WALLPAPER_DARK $WALLPAPER_TRANSITION_TYPE
-	fi
+	toggle_gtk_theme
 }
 
 toggle_alacritty_theme() {
@@ -97,6 +60,38 @@ toggle_alacritty_theme() {
 	fi
 
 	touch "$ALACRITTY_MAIN_CONFIG"
+}
+
+toggle_wallpaper() {
+	if [[ $current_theme == "dark" ]]; then
+		swww img $WALLPAPER_DARK $WALLPAPER_TRANSITION_TYPE
+	else
+		swww img $WALLPAPER_LIGHT $WALLPAPER_TRANSITION_TYPE
+	fi
+}
+
+toggle_nvim_theme() {
+	if [[ $current_theme == "dark" ]]; then
+		sed -i "s/${NVIM_THEME_LIGHT}/${NVIM_THEME_DARK}/gI" $VIMRC
+	else
+		sed -i "s/${NVIM_THEME_DARK}/${NVIM_THEME_LIGHT}/gI" $VIMRC
+	fi
+
+	touch $VIMRC
+}
+
+toggle_waybar_theme() {
+	if [[ $current_theme == "dark" ]]; then
+		sed -i "s/${WAYBAR_PRIMARY_LIGHT}/${WAYBAR_PRIMARY_DARK}/gI" $WAYBAR
+		sed -i "s/${WAYBAR_BACKGROUND_LIGHT}/${WAYBAR_BACKGROUND_DARK}/gI" $WAYBAR
+		sed -i "s/${WAYBAR_BACKGROUND_LIGHT_ALT}/${WAYBAR_BACKGROUND_DARK_ALT}/gI" $WAYBAR
+	else
+		sed -i "s/${WAYBAR_PRIMARY_DARK}/${WAYBAR_PRIMARY_LIGHT}/gI" $WAYBAR
+		sed -i "s/${WAYBAR_BACKGROUND_DARK}/${WAYBAR_BACKGROUND_LIGHT}/gI" $WAYBAR
+		sed -i "s/${WAYBAR_BACKGROUND_DARK_ALT}/${WAYBAR_BACKGROUND_LIGHT_ALT}/gI" $WAYBAR
+	fi
+
+	reload_waybar
 }
 
 toggle_dunst_theme() {
@@ -133,6 +128,16 @@ toggle_icons() {
 		fi
 		touch "$file"
 	done
+}
+
+toggle_gtk_theme() {
+	gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-light'
+	gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+}
+
+reload_waybar() {
+	killall waybar
+	waybar &
 }
 
 reload_dunst() {

@@ -14,6 +14,7 @@ WAYBAR_PRIMARY_LIGHT="@primary-light"
 VIMRC="$HOME/.vimrc"
 NVIM_THEME_DARK="tokyonight-night"
 NVIM_THEME_LIGHT="tokyonight-day"
+ROFI="$HOME/.config/rofi/config.rasi"
 WALLPAPER_DARK="$HOME/Wallpapers/wallpaper3.jpg"
 WALLPAPER_LIGHT="$HOME/Wallpapers/wallpaper2.jpg"
 WALLPAPER_TRANSITION_TYPE="--transition-type grow"
@@ -44,6 +45,7 @@ main() {
 	toggle_alacritty_theme
 	toggle_waybar_theme
 	toggle_nvim_theme
+	toggle_rofi_theme
 	toggle_icons
 	toggle_dunst_theme
 }
@@ -109,6 +111,16 @@ toggle_dunst_theme() {
 	touch $DUNSTRC
 	reload_dunst &
 	notify
+}
+
+toggle_rofi_theme() {
+	if [[ $current_theme == "dark" ]]; then
+		sed -i "s/light/dark/g" "$ROFI"
+	else
+		sed -i "s/dark/light/g" "$ROFI"
+	fi
+
+	touch $ROFI
 }
 
 toggle_icons() {

@@ -1,56 +1,56 @@
 [global]
+title = Dunst
+class = Dunst
 follow = mouse
-indicate_hidden = no 
-offset = 10x10
 notification_height = 0
 origin = bottom-center
-width = (210,400)
-corner_radius = 10 
-timeout = 5
-separator_height = 1
 progress_bar = false
+vertical_alignment = center
+font = JetBrainsMono Nerd 10 
 
+width = (210,400)
+height = 100
+offset = 10x10
+corner_radius = 10 
+separator_height = 1
 padding = 13
 horizontal_padding = 32
 text_icon_padding = 20 
-frame_width = 0
-
-frame_color = "#AABEBF"
-separator_color = frame
-
-sort = no 
-idle_threshold = 120
-font = JetBrainsMono Nerd 10 
-line_height = 0
-markup = full
 alignment = left 
-vertical_alignment = center
-show_age_threshold = 60
-word_wrap = yes
-stack_duplicates = true
-hide_duplicate_count = true 
-
-show_indicators = yes
+frame_width = 0
+frame_color = "#AABEBF"
+separator_color = foreground
 
 min_icon_size = 0
 max_icon_size = 64
-
+icon_corner_radius = 5
 icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/actions/:/usr/share/icons/Papirus-Dark/16x16/animations/:/usr/share/icons/Papirus-Dark/16x16/apps/:/usr/share/icons/Papirus-Dark/16x16/categories/:/usr/share/icons/Papirus-Dark/16x16/emblems/:/usr/share/icons/Papirus-Dark/16x16/emotes/:/usr/share/icons/Papirus-Dark/16x16/devices/mimetypes:/usr/share/icons/Papirus-Dark/16x16/panel/:/usr/share/icons/Papirus-Dark/16x16/places/
+icon_theme = "Adwaita, breeze, papirus"
+enable_recursive_icon_lookup = true
 
+timeout = 5
+sort = true 
+markup = full
+line_height = 0
+stack_duplicates = false
+hide_duplicate_count = true 
+word_wrap = false
+ellipsize = end
+show_indicators = yes
+indicate_hidden = false 
+idle_threshold = 120s
+show_age_threshold = 60
 dmenu = /usr/bin/wofi -p dunst:
 browser = /usr/bin/firefox --new-tab
 
-title = Dunst
-class = Dunst
-
 [urgency_low]
-background = "#99AEB3"
-foreground = "#151C22"
+background = "#151C22"
+foreground = "#99AEB3"
 
 [urgency_normal]
-background = "#99AEB3"
-foreground = "#151C22"
+background = "#151C22"
+foreground = "#99AEB3"
 
 [urgency_critical]
-background = "#99AEB3"
-foreground = "#151C22"
+background = "#151C22"
+foreground = "#99AEB3"

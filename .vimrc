@@ -9,3 +9,4 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
+colorscheme tokyonight-night

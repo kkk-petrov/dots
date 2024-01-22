@@ -10,12 +10,13 @@ export PATH="$PATH:$HOME/go/bin"
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 source $HOME/code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export PF_INFO="ascii title os kernel uptime pkgs shell wm"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+export PF_INFO="ascii title os kernel uptime pkgs shell wm"
+export THEME="light"
 
 
 # pacman aliases

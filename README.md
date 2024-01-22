@@ -20,7 +20,7 @@ Missing dependencies may lead to errors or incomplete configurations.
 - [alacritty](https://github.com/alacritty/alacritty)
 - [zsh](https://github.com/ohmyzsh/ohmyzsh/)
 - [hyprland](https://github.com/hyprwm/Hyprland)
-- [swww](https://github.com/igfae/swww)
+- [swww](https://github.com/LGFae/swww)
 - [waybar](https://github.com/Alexays/Waybar)
 - [dunst](https://github.com/dunst-project/dunst)
 

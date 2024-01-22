@@ -1,4 +1,4 @@
-import = ["/home/hapka/.config/alacritty/github_dark_colorblind.toml"]
+import = ["/home/hapka/.config/alacritty/theme.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -34,6 +34,7 @@ program = "/usr/bin/zsh"
 
 [window]
 opacity = 1
+decorations = "None"
 
 [window.class]
 general = "Alacritty"
@@ -41,5 +42,5 @@ instance = "Alacritty"
 
 [window.padding]
 x = 10
-y = 10
+y = 15
 

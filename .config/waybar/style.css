@@ -1,12 +1,10 @@
-@define-color primary #99AEB3;
-@define-color background #151C22;
-/* @define-color background #1B2329; */
+@import "./colors.css";
 
 * {
   padding: 0;
   margin: 0;
   font-family: JetBrainsMono Nerd Font;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 16px;
   /* background-color: #0B161C; */
   background: transparent;
@@ -35,11 +33,12 @@
 .modules-left {
   background: @background;
   min-width: 200px;
-  padding: 4px 0px 9px 0px;
+  padding: 3px 0px 6px 0px;
 }
 
 window#waybar {
   background-color: rgba(0, 0, 0, 0);
+  background: @background-alt;
 }
 
 #custom-window-name {
@@ -54,6 +53,7 @@ window#waybar {
   background: transparent;
   font-weight: 600;
   font-size: 16px;
+  border-radius: 0px;
 }
 
 #workspaces {

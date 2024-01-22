@@ -4,7 +4,7 @@
 
 ### hyprland 
 ![preview-hypr](./.preview/preview-hypr.png)
-
+![preview-hypr](./.preview/preview-hypr2.png)
 
 ## Dependencies
 Ensure that the following packages are installed on your system.
@@ -20,7 +20,7 @@ Missing dependencies may lead to errors or incomplete configurations.
 - [alacritty](https://github.com/alacritty/alacritty)
 - [zsh](https://github.com/ohmyzsh/ohmyzsh/)
 - [hyprland](https://github.com/hyprwm/Hyprland)
-- [hyprpaper](https://github.com/hyprwm/hyprpaper)
+- [swww](https://github.com/igfae/swww)
 - [waybar](https://github.com/Alexays/Waybar)
 - [dunst](https://github.com/dunst-project/dunst)
 

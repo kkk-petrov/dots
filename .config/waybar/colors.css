@@ -1,0 +1,6 @@
+@define-color primary #99AEB3;
+@define-color background #151C22;
+@define-color background-alt rgba(21, 28, 34, 0.8);
+@define-color primary-light #151C22;
+@define-color background-light #DCDCDC;
+@define-color background-light-alt rgba(255, 255, 255, 0.5);

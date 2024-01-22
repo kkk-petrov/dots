@@ -5,7 +5,7 @@
   margin: 0;
   font-family: JetBrainsMono Nerd Font;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 12px;
   /* background-color: #0B161C; */
   background: transparent;
   /* Reduced opacity background */
@@ -19,55 +19,57 @@
   min-width: 0;
 }
 
-.modules-right {
-  /* border-radius: 0px 0px 0px 80px; */
-}
-
-
-.modules-left {
-  /* border-radius: 0px 0px 80px 0px; */
-  padding-right: 15px;
-}
-
 .modules-center,
 .modules-right,
 .modules-left {
-  background: @background-light;
+  background: @background-dark;
   min-width: 200px;
-  padding: 1px 0px 2px 0px;
-  color: @primary-light;
+  padding-bottom: 1px;
+  color: @primary-dark;
 }
 
 window#waybar {
-  background: @background-light;
+  background: @background-dark;
 }
 
 #custom-window-name {
-  color: @primary-light;
+  color: @primary-dark;
   margin: 0px 50px;
   min-width: 0;
 }
 
+#custom-toggletheme {
+  color: @primary-dark;
+  margin-right: 10px;
+}
+
+#backlight {
+  color: @primary-dark;
+  margin-right: 15px;
+  font-size: 16px;
+}
+
 #language {
-  padding-left: 25px;
-  color: @primary-light;
+  /* padding-left: 25px; */
+  color: @primary-dark;
   background: transparent;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 0px;
+  margin-right: 15px;
 }
 
 #workspaces {
-  padding-left: 25px;
-  padding-right: 35px;
+  /* padding-right: 35px; */
+  padding-left: 15px;
 }
 
 #workspaces button label {
-  color: @primary-light;
+  color: @primary-dark;
   margin: 0px 8px;
   background-color: #1a1c2b;
   background: transparent;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 100;
   font-style: normal;
   padding: 0;
@@ -80,10 +82,10 @@ window#waybar {
   border: none;
   outline: none;
   box-shadow: none;
-  color: @primary-light;
+  color: @primary-dark;
   animation: none;
   transition: all 1000s ease;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 100;
   font-style: normal;
   border-radius: 0;
@@ -95,7 +97,7 @@ window#waybar {
   border: none;
   outline: none;
   box-shadow: none;
-  color: @primary-light;
+  color: @primary-dark;
   margin: 0px 8px;
   animation: none;
   transition: all 1000s ease;
@@ -106,8 +108,8 @@ window#waybar {
 }
 
 #battery {
-  color: @primary-light;
-  margin: 0px 30px 0px 0px;
+  color: @primary-dark;
+  margin-right: 25px;
 }
 
 #pulseaudio {
@@ -115,19 +117,18 @@ window#waybar {
   background: transparent;
   margin-top: 5px;
   margin-bottom: 5px;
-  color: @primary-light;
+  color: @primary-dark;
   background: transparent;
   margin-right: 10px;
 }
 
 #network {
-  color: @primary-light;
-  margin-right: 10px;
-  background-color: transparent;
+  color: @primary-dark;
+  margin-right: 15px;
 }
 
 #custom-dot {
-  color: @primary-light;
+  color: @primary-dark;
   padding-right: 10px;
   background-color: transparent;
 }
@@ -140,9 +141,8 @@ window#waybar {
 
 #clock {
   /* color: #5E8C8F; */
-  color: @primary-light;
-  padding-left: 20px;
-  padding-right: 35px;
+  color: @primary-dark;
+  padding-right: 25px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
 }

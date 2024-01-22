@@ -84,7 +84,6 @@
       "critical": 15
     },
     "format": "{icon}",
-    "format-charging": "",
     "format-icons": ["", "", "", "", "", "", "", "", "", ""],
     "max-length": 25,
     "tooltip": false
@@ -93,5 +92,19 @@
     "format": "<b>{}</b>",
     "interval": 3,
     "exec": "hyprctl activewindow | grep class | awk '{print $2}'"
+  },
+  "custom/toggletheme": {
+    "format": " ",
+    "on-hover": false, 
+    "on-click": "/home/hapka/.config/hypr/scripts/toggletheme.sh"
+  },
+  "backlight": {
+    "device": "amdgpu_bl1",
+    "format": "<span>{icon}</span>",
+    "format-alt": "<span>{icon}</span> {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-hover": false,
+    "tooltip": false
+
   },
 }

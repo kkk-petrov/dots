@@ -24,6 +24,7 @@ DUNST_FOREGROUND_LIGHT='foreground = "#151C22"'
 ICONS="$HOME/.config/dunst/icons"
 ICON_DARK="DCDCDC"
 ICON_LIGHT="151C22"
+current_theme=""
 
 main() {
 	toggle_gtk_theme
@@ -34,6 +35,18 @@ main() {
 	toggle_rofi_theme
 	toggle_nvim_theme
 	toggle_dunst_theme
+}
+
+toggle_gtk_theme() {
+	if gsettings get org.gnome.desktop.interface gtk-theme | grep -q "dark"; then
+		current_theme="light"
+		gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-light'
+		gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+	else
+		current_theme="dark"
+		gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+		gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+	fi
 }
 
 toggle_alacritty_theme() {
@@ -56,7 +69,7 @@ toggle_wallpaper() {
 	else
 		wallpaper=$WALLPAPER_LIGHT
 	fi
-	swww img $wallpaper --transition-type grow
+	swww img $wallpaper --transition-type center
 }
 
 toggle_nvim_theme() {
@@ -114,18 +127,6 @@ toggle_icons() {
 		fi
 		touch "$file"
 	done
-}
-
-toggle_gtk_theme() {
-	if gsettings get org.gnome.desktop.interface gtk-theme | grep -q "light"; then
-		gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-		gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-		current_theme="light"
-	else
-		gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-light'
-		gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
-		current_theme="dark"
-	fi
 }
 
 reload_waybar() {

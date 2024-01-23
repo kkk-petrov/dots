@@ -1,37 +1,40 @@
-# github Alacritty Colors
-
 # Default colors
 [colors.primary]
-# background = '#0d1117'
-foreground = '#b3b1ad'
-background = "#050b0f"
+# background = '#1a1b26'
+background = '#050b0f'
+foreground = '#c0caf5'
+
+#[colors.cursor]
+#cursor = '#c0caf5'
+#text = '#1a1b26'
 
 # Normal colors
 [colors.normal]
-black   = '#484f58'
-red     = '#ff7b72'
-green   = '#3fb950'
-yellow  = '#d29922'
-blue    = '#58a6ff'
-magenta = '#bc8cff'
-cyan    = '#39c5cf'
-white   = '#b1bac4'
+black = '#15161e'
+red = '#f7768e'
+green = '#c0caf5'
+yellow = '#e0af68'
+blue = '#7aa2f7'
+magenta = '#bb9af7'
+cyan = '#7dcfff'
+white = '#a9b1d6'
 
 # Bright colors
 [colors.bright]
-black   = '#6e7681'
-red     = '#ffa198'
-green   = '#56d364'
-yellow  = '#e3b341'
-blue    = '#79c0ff'
-magenta = '#d2a8ff'
-cyan    = '#56d4dd'
-white   = '#f0f6fc'
+black = '#414868'
+red = '#f7768e'
+green = '#bb9af7'
+yellow = '#e0af68'
+blue = '#7aa2f7'
+magenta = '#bb9af7'
+cyan = '#7dcfff'
+white = '#c0caf5'
 
+# Indexed Colors
 [[colors.indexed_colors]]
 index = 16
-color = '#d18616'
+color = '#ff9e64'
 
 [[colors.indexed_colors]]
 index = 17
-color = '#ffa198'
+color = '#db4b4b'

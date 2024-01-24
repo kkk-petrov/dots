@@ -8,15 +8,15 @@ progress_bar = false
 vertical_alignment = center
 font = JetBrainsMono Nerd 10 
 
-width = (210,400)
+width = (210, 300)
 height = 100
 offset = 10x10
 corner_radius = 10 
 separator_height = 1
 padding = 13
-horizontal_padding = 32
-text_icon_padding = 20 
-alignment = left 
+horizontal_padding = 16 
+text_icon_padding = 16
+alignment = left
 frame_width = 0
 frame_color = "#AABEBF"
 separator_color = foreground
@@ -52,5 +52,5 @@ background = "#151C22"
 foreground = "#99AEB3"
 
 [urgency_critical]
-background = "#151C22"
-foreground = "#99AEB3"
+background = "#700c0c"
+foreground = "#DCDCDC"

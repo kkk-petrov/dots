@@ -10,7 +10,7 @@ WAYBAR_PRIMARY_DARK="@primary-dark"
 WAYBAR_BACKGROUND_LIGHT="@background-light"
 WAYBAR_BACKGROUND_LIGHT_ALT="@background-light-alt"
 WAYBAR_PRIMARY_LIGHT="@primary-light"
-VIMRC="$HOME/.vimrc"
+NVIM_THEME="$HOME/.config/nvim/lua/plugins/core.lua"
 NVIM_THEME_DARK="tokyonight-night"
 NVIM_THEME_LIGHT="tokyonight-day"
 ROFI="$HOME/.config/rofi/config.rasi"
@@ -74,12 +74,12 @@ toggle_wallpaper() {
 
 toggle_nvim_theme() {
 	if [[ $current_theme == "dark" ]]; then
-		sed -i "s/${NVIM_THEME_LIGHT}/${NVIM_THEME_DARK}/gI" $VIMRC
+		sed -i "s/${NVIM_THEME_LIGHT}/${NVIM_THEME_DARK}/gI" $NVIM_THEME
 	else
-		sed -i "s/${NVIM_THEME_DARK}/${NVIM_THEME_LIGHT}/gI" $VIMRC
+		sed -i "s/${NVIM_THEME_DARK}/${NVIM_THEME_LIGHT}/gI" $NVIM_THEME
 	fi
 
-	touch $VIMRC
+	touch $NVIM_THEME
 }
 
 toggle_waybar_theme() {

@@ -18,7 +18,7 @@ WALLPAPER_DARK="$HOME/Wallpapers/wallpaper3.jpg"
 WALLPAPER_LIGHT="$HOME/Wallpapers/wallpaper2.jpg"
 DUNSTRC="$HOME/.config/dunst/dunstrc"
 DUNST_BACKGROUND_DARK='background = "#151C22"'
-DUNST_BACKGROUND_LIGHT='background = "#DCDCDC"'
+DUNST_BACKGROUND_LIGHT='background = "#C8C8C8"'
 DUNST_FOREGROUND_DARK='foreground = "#99AEB3"'
 DUNST_FOREGROUND_LIGHT='foreground = "#151C22"'
 ICONS="$HOME/.config/dunst/icons"

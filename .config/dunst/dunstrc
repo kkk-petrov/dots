@@ -44,12 +44,12 @@ dmenu = /usr/bin/wofi -p dunst:
 browser = /usr/bin/firefox --new-tab
 
 [urgency_low]
-background = "#151C22"
-foreground = "#99AEB3"
+background = "#C8C8C8"
+foreground = "#151C22"
 
 [urgency_normal]
-background = "#151C22"
-foreground = "#99AEB3"
+background = "#C8C8C8"
+foreground = "#151C22"
 
 [urgency_critical]
 background = "#700c0c"

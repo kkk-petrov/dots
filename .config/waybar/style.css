@@ -69,7 +69,7 @@ window#waybar {
   margin: 0px 8px;
   background-color: #1a1c2b;
   background: transparent;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 100;
   font-style: normal;
   padding: 0;
@@ -77,34 +77,11 @@ window#waybar {
 }
 
 #workspaces button:hover {
-  background: transparent;
-  padding: 0;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  color: @primary-light;
-  animation: none;
   transition: all 1000s ease;
-  font-size: 16px;
-  font-weight: 100;
-  font-style: normal;
-  border-radius: 0;
 }
 
 #workspaces button:hover label {
-  background: transparent;
-  padding: 0;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  color: @primary-light;
-  margin: 0px 8px;
-  animation: none;
   transition: all 1000s ease;
-  font-size: 16px;
-  font-weight: 100;
-  font-style: normal;
-  border-radius: 0;
 }
 
 #battery {

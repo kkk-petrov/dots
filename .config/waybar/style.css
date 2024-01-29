@@ -22,36 +22,36 @@
 .modules-center,
 .modules-right,
 .modules-left {
-  background: @background-light;
+  background: @background-dark;
   min-width: 200px;
   padding-bottom: 1px;
-  color: @primary-light;
+  color: @primary-dark;
 }
 
 window#waybar {
-  background: @background-light;
+  background: @background-dark;
 }
 
 #custom-window-name {
-  color: @primary-light;
+  color: @primary-dark;
   margin: 0px 50px;
   min-width: 0;
 }
 
 #custom-toggletheme {
-  color: @primary-light;
+  color: @primary-dark;
   margin-right: 10px;
 }
 
 #backlight {
-  color: @primary-light;
+  color: @primary-dark;
   margin-right: 15px;
   font-size: 16px;
 }
 
 #language {
   /* padding-left: 25px; */
-  color: @primary-light;
+  color: @primary-dark;
   background: transparent;
   font-weight: 600;
   font-size: 16px;
@@ -65,7 +65,7 @@ window#waybar {
 }
 
 #workspaces button label {
-  color: @primary-light;
+  color: @primary-dark;
   margin: 0px 8px;
   background-color: #1a1c2b;
   background: transparent;
@@ -85,7 +85,7 @@ window#waybar {
 }
 
 #battery {
-  color: @primary-light;
+  color: @primary-dark;
   margin-right: 25px;
 }
 
@@ -94,18 +94,18 @@ window#waybar {
   background: transparent;
   margin-top: 5px;
   margin-bottom: 5px;
-  color: @primary-light;
+  color: @primary-dark;
   background: transparent;
   margin-right: 10px;
 }
 
 #network {
-  color: @primary-light;
+  color: @primary-dark;
   margin-right: 15px;
 }
 
 #custom-dot {
-  color: @primary-light;
+  color: @primary-dark;
   padding-right: 10px;
   background-color: transparent;
 }
@@ -118,7 +118,7 @@ window#waybar {
 
 #clock {
   /* color: #5E8C8F; */
-  color: @primary-light;
+  color: @primary-dark;
   padding-right: 25px;
   font-weight: 600;
   font-size: 16px;

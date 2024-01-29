@@ -10,7 +10,7 @@ font = JetBrainsMono Nerd 10
 
 width = (210, 300)
 height = 100
-offset = 20x20 
+offset = 15x15 
 corner_radius = 10 
 separator_height = 1
 padding = 16
@@ -44,12 +44,12 @@ dmenu = /usr/bin/wofi -p dunst:
 browser = /usr/bin/firefox --new-tab
 
 [urgency_low]
-background = "#C8C8C8"
-foreground = "#151C22"
+background = "#151C22"
+foreground = "#99AEB3"
 
 [urgency_normal]
-background = "#C8C8C8"
-foreground = "#151C22"
+background = "#151C22"
+foreground = "#99AEB3"
 
 [urgency_critical]
 background = "#700c0c"

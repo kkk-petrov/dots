@@ -42,7 +42,13 @@ return {
               key = "s",
             },
             {
-              desc = " Files",
+              desc = "󰈙 New file",
+              group = "Label",
+              action = "ene | startinsert",
+              key = "n",
+            },
+            {
+              desc = " Files",
               group = "Label",
               action = "Telescope find_files",
               key = "f",

@@ -22,6 +22,7 @@ style = "Italic"
 family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
+
 [scrolling]
 history = 10000
 multiplier = 3

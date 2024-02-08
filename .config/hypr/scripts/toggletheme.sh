@@ -14,7 +14,7 @@ NVIM_THEME="$HOME/.config/nvim/lua/plugins/core.lua"
 NVIM_THEME_DARK="tokyonight-night"
 NVIM_THEME_LIGHT="tokyonight-day"
 ROFI="$HOME/.config/rofi/config.rasi"
-WALLPAPER_DARK="$HOME/Wallpapers/wallpaper3.jpg"
+WALLPAPER_DARK="$HOME/Wallpapers/wallpaper4.jpg"
 WALLPAPER_LIGHT="$HOME/Wallpapers/wallpaper2.jpg"
 DUNSTRC="$HOME/.config/dunst/dunstrc"
 DUNST_BACKGROUND_DARK='background = "#151C22"'

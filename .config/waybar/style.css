@@ -22,7 +22,7 @@
 .modules-center,
 .modules-right,
 .modules-left {
-  background: @background-dark;
+  background: transparent;
   min-width: 200px;
   padding-bottom: 1px;
   color: @primary-dark;

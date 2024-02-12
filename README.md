@@ -3,8 +3,8 @@
 ![preview-bspwm](./.preview/preview-bspwm.png)
 
 ### hyprland 
-![preview-hypr](./.preview/preview-hypr.png)
-![preview-hypr](./.preview/preview-hypr2.png)
+![preview-hypr](./.preview/preview-hypr.jpg)
+![preview-hypr](./.preview/preview-hypr2.jpg)
 
 ## Dependencies
 Ensure that the following packages are installed on your system.
@@ -16,7 +16,7 @@ Missing dependencies may lead to errors or incomplete configurations.
 - [picom](https://github.com/yshui/picom)
 - [rofi](https://github.com/davatorium/rofi)
 - [nitrogen](https://github.com/l3ib/nitrogen)
-- [nvim](https://github.com/LazyVim/LazyVim)
+- [nvim](https://github.com/kkk-petrov/neovim)
 - [alacritty](https://github.com/alacritty/alacritty)
 - [zsh](https://github.com/ohmyzsh/ohmyzsh/)
 - [hyprland](https://github.com/hyprwm/Hyprland)

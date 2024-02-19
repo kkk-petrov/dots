@@ -23,7 +23,7 @@ Missing dependencies may lead to errors or incomplete configurations.
 - [dunst](https://github.com/dunst-project/dunst)
 
 ## Also check out my [neovim](https://github.com/kkk-petrov/neovim) configuration
-[![preview-hypr](./.preview/preview-neovim.jpg)](https://github.com/kkk-petrov/neovim)
+[![preview-nvim](./.preview/preview-neovim.png)](https://github.com/kkk-petrov/neovim)
 
 ## Disclaimer
 Always review the configurations before applying them to your system. Make backups of existing configurations to avoid data loss.

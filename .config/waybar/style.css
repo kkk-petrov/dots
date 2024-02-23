@@ -84,6 +84,10 @@ window#waybar {
   transition: all 1000s ease;
 }
 
+#workspaces button.active {
+  margin-right: 3px;
+}
+
 #battery {
   color: @primary-dark;
   margin-right: 25px;

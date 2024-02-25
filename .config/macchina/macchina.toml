@@ -1,0 +1,30 @@
+interface = "wlan0"
+long_uptime = true
+long_shell = false
+long_kernel = false
+current_shell = true
+physical_cores = false
+theme = "Main"
+
+# Accepted values (case-sensitive):
+#   - Host
+#   - Machine
+#   - Kernel
+#   - Distribution
+#   - OperatingSystem
+#   - DesktopEnvironment
+#   - WindowManager
+#   - Resolution
+#   - Backlight
+#   - Packages
+#   - LocalIP
+#   - Terminal
+#   - Shell
+#   - Uptime
+#   - Processor
+#   - ProcessorLoad
+#   - Memory
+#   - Battery
+#   - GPU
+#   - DiskSpace
+show = ["Machine", "Processor", "Distribution", "DesktopEnvironment", "Terminal", "Shell", "Uptime"]

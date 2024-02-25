@@ -1,5 +1,5 @@
 ## Preview
-![preview-hypr](./.preview/preview.jpg)
+![preview-hypr](./.preview/preview.png)
 
 ## Dependencies
 Ensure that the following packages are installed on your system.

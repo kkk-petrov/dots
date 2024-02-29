@@ -14,7 +14,7 @@ Missing dependencies may lead to errors or incomplete configurations.
 - [swww](https://github.com/LGFae/swww)
 
 ## Also check out my [neovim](https://github.com/kkk-petrov/neovim) configuration
-[![preview-nvim](./.config/nvim/.preview/preview.png)](https://github.com/kkk-petrov/neovim)
+[![preview-nvim](https://github.com/kkk-petrov/neovim/blob/734ac2483c4a8df6ee440a7354b185dc5676b012/.preview/preview.png)](https://github.com/kkk-petrov/neovim)
 
 ## Disclaimer
 Always review the configurations before applying them to your system. Make backups of existing configurations to avoid data loss.

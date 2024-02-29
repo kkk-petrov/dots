@@ -1,110 +1,143 @@
-@define-color primary-dark #99AEB3;
-@define-color background-dark #1E1E2E; 
-@define-color background-dark-alt rgba(21, 28, 34, 0.9);
-@define-color primary-light #151C22;
-@define-color background-light #DCDCDC;
-@define-color background-light-alt rgba(220, 220, 220, 0.9);
+@define-color primary #99AEB3; /* #99AEB3 */
+@define-color background #1E1E2E; /* #1E1E2E */
 
 * {
   padding: 0;
   margin: 0;
   font-family: JetBrainsMono Nerd Font;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
+  transition: none;
+	box-shadow: none;
+	text-shadow: none;
+	transition: none;
+  border: none;
+  outline: none;
 }
 
 window#waybar {
-  background: @background-dark;
+  background: @background;
 }
 
 #tray menu,
 tooltip {
-  background: @background-dark;
-  color: @primary-dark;
+  background: @background;
+  color: @primary;
   padding: 15px;
 }
 
 tooltip label {
-  color: @primary-dark;
+  color: @primary;
 }
 
 .modules-center,
 .modules-right,
 .modules-left {
   background: transparent;
-  color: @primary-dark;
-  padding-bottom: 2px;
-  padding-top: 1px;
+  color: @primary;
+  padding: 2px 15px 3px 15px;
 }
 
 #workspaces {
-  margin-left: 15px;
-  font-weight: 600;
+  transition: all 300ms ease;
+  /* margin-left: 15px; */
 }
 
 #workspaces button {
-  margin: 0px 5px;
-  padding: 0px;
-  background: transparent; 
-  color: @primary-dark;
+  background: transparent;
+  color: alpha(@primary, 0.5);
+  transition: all 100ms ease, color 0s;
+  letter-spacing: -7px;
 }
 
 #workspaces button.active {
-  margin-right: 8px;
-  padding: 0px;
+  color: @primary;
+  letter-spacing: -7px;
+  transition: color 300ms ease;
+  margin: 0px 4px;
 }
 
 #workspaces button:hover {
-  transition: none;
-	box-shadow: inherit;
-	text-shadow: inherit;
-	transition: none;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  font-weight: inherit;
-  padding: 1px;
+  color: shade(alpha(@primary, 0.8), 1.1);
 }
 
-#language,
-#network,
-#clock,
-#tray,
-#custom-power,
-#battery {
-  color: @primary-dark;
-  margin-right: 15px;
+#workspaces button.active:hover {
+  color: shade(@primary, 1.5);
 }
 
-#clock {
-  margin: 0px;
-}
-
-#network {
+#tray {
   margin-right: 10px;
 }
 
-#custom-power {
-  margin-right: 30px;
+#info {
+  background: @background;
+  border-radius: 10px 0px 0px 10px;
+  margin-right: 10px;
+}
+
+#clock,
+#language,
+#network,
+#battery {
+  color: @primary;
+  font-size: 14px;
+  margin-right: 1px;
+}
+
+#language {
+  margin-right: 7px;
+}
+
+#network {
+  margin-right: 5px;
+}
+
+#clock {
+  /* margin-right: 15px; */
 }
 
 #workspaces button.urgent,
 #network.disabled,
 #network.disconnected,
 #battery.warning:not(.charging) {
-    color: @primary-dark;
-    animation-name: blink;
-    animation-duration: 0.4s;
-    animation-timing-function: steps(5);
+    color: @primary;
+    animation-name: warning;
+    animation-duration: .5s;
+    animation-timing-function: steps(15);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+    color: @primary;
+    animation-name: critical;
+    animation-duration: .5s;
+    animation-timing-function: steps(15);
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
 
 /* Keyframes */
-@keyframes blink {
+@keyframes warning {
     to {
-        /* color: #f53c3c; */
         color: #EBA0AC;
     }
 }
+
+@keyframes critical {
+    to {
+        color: #f53c3c;
+    }
+}
+
+@keyframes blink {
+  0% {
+    color: @primary;
+  }
+
+  50% {
+    color: #e1e4e8;
+  }
+}
+

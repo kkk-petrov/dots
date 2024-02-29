@@ -8,7 +8,7 @@ progress_bar = false
 vertical_alignment = center
 font = JetBrainsMono Nerd 10 
 
-width = (210, 300)
+width = (110, 300)
 height = 100
 offset = 15x15 
 corner_radius = 10 
@@ -28,7 +28,7 @@ icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus
 icon_theme = "Adwaita, breeze, papirus"
 enable_recursive_icon_lookup = true
 
-timeout = 5
+timeout = 3
 sort = true 
 markup = full
 line_height = 0

@@ -1,4 +1,0 @@
-{
-  "output": "eDP-1",
-  "include": ["~/.config/waybar/bar.json"],
-}

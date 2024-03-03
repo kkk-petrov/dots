@@ -10,7 +10,7 @@ Missing dependencies may lead to errors or incomplete configurations.
 - [waybar](https://github.com/Alexays/Waybar)
 - [wezterm](https://github.com/wez/wezterm)
 - [nvim](https://github.com/neovim/neovim)
-- [zsh](https://github.com/ohmyzsh/ohmyzsh/)
+- [zsh](https://github.com/ohmyzsh/ohmyzsh/) + [minimal theme](https://github.com/subnixr/minimal)
 - [dunst](https://github.com/dunst-project/dunst)
 - [rofi](https://github.com/davatorium/rofi)
 - [swww](https://github.com/lgfae/swww)

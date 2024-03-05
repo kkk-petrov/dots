@@ -2,7 +2,7 @@
 ![preview-hypr](./assets/preview.png)
 ![preview-hypr](./assets/nvim.png)
 
-## Dependencies
+## Packages
 Ensure that the following packages are installed on your system.
 Missing dependencies may lead to errors or incomplete configurations.
 

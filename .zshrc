@@ -1,34 +1,13 @@
-#
-#
-cd $HOME
-
+# OMZ
 ZSH_THEME="minimal"
 plugins=(git zsh-syntax-highlighting)
 
-export PNPM_HOME="$HOME/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export PF_INFO="ascii title os kernel de uptime pkgs shell"
-export DOTNET_ROOT=$HOME/.dotnet
-export ZSH="$HOME/.oh-my-zsh"
-export PATH=$PATH:/usr/local/go/bin
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$PATH:$HOME/go/bin"
-export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-export TERM='xterm-256color'
-export EDITOR='nvim'
-export VISUAL='nvim'
-export GTK_THEME='Adwaita:dark'
-export fl=$HOME/'.wine/drive_c/Program Files/Image-Line/FL Studio 21/'
-export flkits=$HOME/'.wine/drive_c/Program Files/Image-Line/FL Studio 21/Data/Patches/Kits/'
-export flloops=$HOME/'.wine/drive_c/Program Files/Image-Line/FL Studio 21/Data/Patches/Loops/'
-
+# SOURCES
 source $HOME/.bun/_bun
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/eww.zsh
 
-# pacman aliases
+# ALIASES
 alias p='sudo pacman -S'                        # install       
 alias pu='sudo pacman -Syu'                     # update        
 alias pr='sudo pacman -Rs'                      # remove        
@@ -39,7 +18,16 @@ alias pc='sudo pacman -Scc'                     # clean cache
 alias plf='sudo pacman -Ql'                     # list files    
 alias pro='sudo pacman -Rns $(pacman -Qtdq)'    # remove orphans
 
+alias pa='paru -S'                              # install       
+alias par='paru -Rs'                            # remove        
+alias pai='paru -Si'                            # info          
+alias pau='paru -Sua'                           # update        
+alias pas='paru -Ss'                            # search        
+alias pac='paru -Scc'                           # clean cache   
+
 alias rm='trash'
 alias cb='wl-copy'
+alias pp='ping 9.9.9.9'
 
+# EXEC
 macchina

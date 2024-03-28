@@ -2,6 +2,7 @@ local opt = vim.opt
 
 vim.g.mapleader = " "
 vim.wo.number = true
+opt.swapfile = false
 opt.relativenumber = true
 opt.termguicolors = true
 opt.expandtab = true
@@ -10,6 +11,8 @@ opt.shiftwidth = 2
 opt.softtabstop = 2
 opt.laststatus = 0
 opt.clipboard = "unnamedplus"
+opt.langmap =
+	"ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
 
 -- Highlights
 vim.cmd([[

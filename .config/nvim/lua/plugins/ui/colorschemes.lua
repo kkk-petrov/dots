@@ -31,4 +31,5 @@ return {
 	},
 	{ "rebelot/kanagawa.nvim" },
 	{ "navarasu/onedark.nvim" },
+	{ "nyoom-engineering/oxocarbon.nvim" },
 }

@@ -1,5 +1,5 @@
 @define-color primary #99AEB3; /* #99AEB3 */
-@define-color background #1E1E2E; /* #1E1E2E */
+@define-color background #151523; /* #1E1E2E */
 
 * {
   padding: 0;
@@ -40,7 +40,6 @@ tooltip label {
 
 #workspaces {
   transition: all 300ms ease;
-  /* margin-left: 15px; */
 }
 
 #workspaces button {

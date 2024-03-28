@@ -2,6 +2,7 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local builtin = require("telescope.builtin")
 local ls = require("luasnip")
+local wezterm = require("wezterm")
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- SOME KEYMAPS ARE DEFINED IN plugins/ui/whichkey.lua --
@@ -30,10 +31,6 @@ map({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", opts)
 opts.desc = "Spider-b"
 map({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", opts)
 
--- Dashboard
-opts.desc = "Dashboard"
-map("n", "<leader>D", "<cmd>Dashboard<CR>", opts)
-
 -- Lazy
 opts.desc = "Lazy"
 map("n", "<leader>l", "<cmd>Lazy<CR>", opts)
@@ -48,10 +45,10 @@ map("n", "<leader>e", "<cmd>Neotree reveal_force_cwd filesystem toggle<CR>", opt
 
 -- Telescope
 opts.desc = "Browse files"
-map("n", "<leader><Space>", "<cmd>Telescope file_browser path=%:p:h=%:p:h<cr>", opts)
+map("n", "<leader>/", "<cmd>Telescope file_browser path=%:p:h=%:p:h<cr>", opts)
 
 opts.desc = "Live grep"
-map("n", "<leader>/", builtin.live_grep, opts)
+map("n", "<leader><Space>", builtin.live_grep, opts)
 
 -- Save on CTRL + S
 opts.desc = "Save"
@@ -166,27 +163,26 @@ map({ "i", "s" }, "<C-E>", function()
 	end
 end, opts)
 
--- Better copy/paste
--- opts.desc = "Copy to system register"
--- map("v", "y", '"+y', opts)
--- map("n", "y", '"+y', opts)
--- map("n", "yy", '"+yy', opts)
--- map("n", "Y", '"+yg_', opts)
---
--- opts.desc = "Cut to system register"
--- map("v", "x", '"+x', opts)
--- map("v", "X", '"+X', opts)
--- map("n", "x", '"+x', opts)
--- map("n", "X", '"+X', opts)
---
--- opts.desc = "Paste from system register"
--- map("v", "p", '"+p', opts)
--- map("v", "P", '"+P', opts)
--- map("n", "p", '"+p', opts)
--- map("n", "P", '"+P', opts)
-
 -- Better navigation
--- map("n", "<c-k>", "<cmd>wincmd k<CR>")
--- map("n", "<c-j>", "<cmd>wincmd j<CR>")
--- map("n", "<c-h>", "<cmd>wincmd h<CR>")
--- map("n", "<c-l>", "<cmd>wincmd l<CR>")
+opts.desc = "Switch active wezterm pane"
+map({ "n", "t" }, "<C-h>", "<CMD>NavigatorLeft<CR>")
+map({ "n", "t" }, "<C-l>", "<CMD>NavigatorRight<CR>")
+map({ "n", "t" }, "<C-k>", "<CMD>NavigatorUp<CR>")
+map({ "n", "t" }, "<C-j>", "<CMD>NavigatorDown<CR>")
+-- map({'n', 't'}, '<C-p>', '<CMD>NavigatorPrevious<CR>')
+
+local function hurl()
+	local cmd = "hurl -v " .. vim.fn.expand("%") .. " | jq"
+
+	local handle = io.popen(cmd, "r")
+	local output = handle:read("*all")
+	handle:close()
+
+	vim.api.nvim_command("new")
+
+	local bufnr = vim.api.nvim_get_current_buf()
+	vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, vim.split(output, "\n"))
+end
+
+opts.desc = "Run hurl"
+map("n", "<leader>r", hurl, opts)

@@ -72,6 +72,22 @@ return {
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 			end
 
+			lspconfig.biome.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = {
+					"javascript",
+					"javascriptreact",
+					"json",
+					"jsonc",
+					"typescript",
+					"typescript.tsx",
+					"typescriptreact",
+					"astro",
+					"svelte",
+					"vue",
+				},
+			})
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,

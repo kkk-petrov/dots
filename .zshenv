@@ -14,6 +14,8 @@ export TERM='xterm-256color'
 export EDITOR='nvim'
 export VISUAL='nvim'
 export GTK_THEME='Adwaita:dark'
+export XCURSOR_THEME=Bibata-Modern-Ice
+export XCURSOR_SIZE=24
 
 export fl=$HOME/'.wine/drive_c/Program Files/Image-Line/FL Studio 21/'
 export flkits=$HOME/'.wine/drive_c/Program Files/Image-Line/FL Studio 21/Data/Patches/Kits/'

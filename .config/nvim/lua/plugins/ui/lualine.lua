@@ -115,7 +115,7 @@ local cwd = {
 
 local branch = {
 	"branch",
-	icon = "",
+	icon = "",
 	color = { fg = colors.violet, gui = "bold" },
 	padding = { left = 1, right = 1 },
 }

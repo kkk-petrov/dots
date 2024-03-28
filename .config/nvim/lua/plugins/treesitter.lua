@@ -9,6 +9,7 @@ return {
 		},
 		config = function()
 			local treesitter = require("nvim-treesitter.configs")
+			local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
 			treesitter.setup({ -- enable syntax highlighting
 				highlight = {
@@ -51,6 +52,23 @@ return {
 						scope_incremental = false,
 						node_decremental = "<bs>",
 					},
+				},
+			})
+
+			parser_config.hurl = {
+				install_info = {
+					url = "~/git/github.com/kjuulh/tree-sitter-hurl",
+					files = { "src/parser.c" },
+					branch = "main",
+					generate_requires_npm = false,
+					requires_generate_from_grammar = false,
+				},
+				filetype = "hurl",
+			}
+
+			vim.filetype.add({
+				extension = {
+					hurl = "hurl",
 				},
 			})
 

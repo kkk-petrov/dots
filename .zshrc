@@ -1,12 +1,13 @@
 # OMZ
 ZSH_THEME="minimal"
-plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 
 # SOURCES
 source $HOME/.bun/_bun
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/eww.zsh
 source $ZSH/custom/kb.zsh
+source $HOME/.bun/_bun
 
 # ALIASES
 alias p='sudo pacman -S'                        # install       
@@ -27,12 +28,17 @@ alias pas='paru -Ss'                            # search
 alias pac='paru -Scc'                           # clean cache   
 
 alias cd='z'
+alias ls='eza'
 alias rm='trash'
 alias cb='wl-copy'
 alias pp='ping 9.9.9.9'
 alias sr='systemctl soft-reboot'
 alias mpvp="mpvpaper '*'"
 
+
 # EXEC
-macchina
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+bindkey '^ ' autosuggest-accept # Autocomplete on CTRL + SPACE
+macchina
+

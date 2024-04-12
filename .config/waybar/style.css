@@ -1,5 +1,5 @@
-@define-color primary #99AEB3; /* #99AEB3 */
-@define-color background #151523; /* #1E1E2E */
+@define-color primary #99AEB3;
+@define-color background #151523;
 
 * {
   padding: 0;
@@ -8,9 +8,9 @@
   font-weight: 600;
   font-size: 14px;
   transition: none;
-	box-shadow: none;
-	text-shadow: none;
-	transition: none;
+  box-shadow: none;
+  text-shadow: none;
+  transition: none;
   border: none;
   outline: none;
 }
@@ -45,7 +45,9 @@ tooltip label {
 #workspaces button {
   background: transparent;
   color: alpha(@primary, 0.5);
-  transition: all 100ms ease, color 0s;
+  transition:
+    all 100ms ease,
+    color 0s;
   letter-spacing: -7px;
 }
 
@@ -95,39 +97,42 @@ tooltip label {
   /* margin-right: 15px; */
 }
 
+#battery {
+  font-size: 14px;
+}
+
 #workspaces button.urgent,
 #network.disabled,
 #network.disconnected,
 #battery.warning:not(.charging) {
-    color: @primary;
-    animation-name: warning;
-    animation-duration: .5s;
-    animation-timing-function: steps(15);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: @primary;
+  animation-name: warning;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(15);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #battery.critical:not(.charging) {
-    color: @primary;
-    animation-name: critical;
-    animation-duration: .5s;
-    animation-timing-function: steps(15);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: @primary;
+  animation-name: critical;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(15);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
-
 
 /* Keyframes */
 @keyframes warning {
-    to {
-        color: #EBA0AC;
-    }
+  to {
+    color: #eba0ac;
+  }
 }
 
 @keyframes critical {
-    to {
-        color: #f53c3c;
-    }
+  to {
+    color: #f53c3c;
+  }
 }
 
 @keyframes blink {
@@ -139,4 +144,3 @@ tooltip label {
     color: #e1e4e8;
   }
 }
-

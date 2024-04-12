@@ -1,27 +1,30 @@
 local opt = vim.opt
 
 vim.g.mapleader = " "
+vim.g.starry_italic_comments = true
+vim.g.skip_ts_context_commentstring_module = true
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.foldcolumn = "1"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
 vim.wo.number = true
+opt.scrolloff = 2
 opt.swapfile = false
+opt.autoindent = true
+opt.smartindent = true
 opt.relativenumber = true
+opt.ignorecase = true
 opt.termguicolors = true
 opt.expandtab = true
+opt.laststatus = 0
+vim.opt.cmdheight = 1
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = 2
-opt.laststatus = 0
+opt.updatetime = 100
 opt.clipboard = "unnamedplus"
 opt.langmap =
 	"ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
-
--- Highlights
-vim.cmd([[
-  hi FileExplorer gui=bold,italic guibg=#151523
-  hi NeoTreeNormal guibg=#151523
-  hi NeoTreeNormalNC guibg=#151523
-  hi NeoTreeWinSeparator guibg=#151523 guifg=#151523
-  hi NeoTreeVertSplit guibg=#151523 guifg=#151523
-  hi NeoTreeStatusLine guibg=#151523 guifg=#151523
-  hi NeoTreeEndOfBuffer guibg=#151523 guifg=#151523
-  hi NeoTreeEndOfBuffer guibg=#151523 guifg=#151523
-]])

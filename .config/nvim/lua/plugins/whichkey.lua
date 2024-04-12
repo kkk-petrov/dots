@@ -11,14 +11,33 @@ return {
 		local trouble = require("trouble")
 		local opts = { noremap = true, silent = true }
 
+		wk.setup({
+			plugins = { spelling = true },
+			icons = {
+				breadcrumb = ">",
+				separator = "➜",
+				group = "$",
+			},
+			window = {
+				border = "none",
+				winblend = 0,
+				-- padding = { 1, 25, 1, 25 },
+			},
+			layout = {
+				spacing = 3, -- spacing between columns
+				align = "center", -- align columns left, center or right
+			},
+		})
+
 		wk.register({
 			c = {
 				name = "code",
 			},
 			f = {
-				name = "file",
+				name = "files",
 				f = { builtin.find_files, "Find files", opts },
 				n = { "<cmd>enew<cr>", "New file", opts },
+				g = { "<cmd>Telescope live_grep<cr>", "Live grep", opts },
 			},
 			x = {
 				name = "diagnostics",
@@ -68,9 +87,13 @@ return {
 				b = { "<Cmd>BufferLineCyclePrev<CR>", "Move to previous buffer", opts },
 				n = { "<Cmd>BufferLineCycleNext<CR>", "Move to next buffer", opts },
 				c = { "<Cmd>BufferLinePickClose<CR>", "Pick buffer to close", opts },
-				d = { "<Cmd>bdelete!<CR>", "Close buffer", opts },
+				d = { ":lua MiniBufremove.delete()<CR>", "Close buffer", opts },
+			},
+			u = {
+				name = "ui",
+				h = { "<cmd>ColorizerToggle<CR>", "Toggle colorizer", opts },
+				c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme", opts },
 			},
 		}, { prefix = "<leader>" })
 	end,
-	opts = {},
 }

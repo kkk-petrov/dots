@@ -12,10 +12,6 @@ return {
 	{
 		"fatih/vim-go",
 	},
-	-- {
-	-- 	"neoclide/coc.nvim",
-	-- 	branch = "release",
-	-- },
 	{
 		"gbprod/yanky.nvim",
 		opts = {},
@@ -23,11 +19,6 @@ return {
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
-		opts = {}, -- this is equalent to setup({}) function
-	},
-	{
-		"folke/persistence.nvim",
-		event = "BufReadPre",
 		opts = {},
 	},
 	{
@@ -39,93 +30,34 @@ return {
 	},
 	{
 		"numToStr/Comment.nvim",
-		opts = {},
 		lazy = false,
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
+		config = function()
+			require("Comment").setup({
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			})
+		end,
 	},
-	-- {
-	-- 	"christoomey/vim-tmux-navigator",
-	-- 	cmd = {
-	-- 		"TmuxNavigateLeft",
-	-- 		"TmuxNavigateDown",
-	-- 		"TmuxNavigateUp",
-	-- 		"TmuxNavigateRight",
-	-- 		"TmuxNavigatePrevious",
-	-- 	},
-	-- 	keys = {
-	-- 		{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-	-- 		{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-	-- 		{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-	-- 		{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-	-- 		{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-	-- 	},
-	-- },
-	{
-		"JoosepAlviste/nvim-ts-context-commentstring",
-	},
-	{
-		"ahmedkhalf/project.nvim",
-	},
-
 	{
 		"onsails/lspkind.nvim",
 	},
 	{
-		"folke/flash.nvim",
-		event = "VeryLazy",
-		opts = {},
-		keys = {
-			{
-				"s",
-				mode = { "n", "x", "o" },
-				function()
-					require("flash").jump()
-				end,
-				desc = "Flash",
-			},
-			{
-				"S",
-				mode = { "n", "x", "o" },
-				function()
-					require("flash").treesitter()
-				end,
-				desc = "Flash Treesitter",
-			},
-			{
-				"r",
-				mode = "o",
-				function()
-					require("flash").remote()
-				end,
-				desc = "Remote Flash",
-			},
-			{
-				"R",
-				mode = { "o", "x" },
-				function()
-					require("flash").treesitter_search()
-				end,
-				desc = "Treesitter Search",
-			},
-			{
-				"<c-x>",
-				mode = { "c" },
-				function()
-					require("flash").toggle()
-				end,
-				desc = "Toggle Flash Search",
-			},
-		},
-	},
-	{
 		"echasnovski/mini.bufremove",
 		version = false,
-		config = function()
-			require("mini.bufremove").setup()
-		end,
+		opts = {},
 	},
 	{
 		"willothy/wezterm.nvim",
 		config = true,
+	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			signs = false,
+		},
 	},
 	{
 		"numToStr/Navigator.nvim",
@@ -135,5 +67,25 @@ return {
 	},
 	{
 		"Exafunction/codeium.vim",
+	},
+	{
+		"fei6409/log-highlight.nvim",
+		opts = {},
+	},
+	{
+		"folke/neodev.nvim",
+		opts = {},
+	},
+	{
+		"mistricky/codesnap.nvim",
+		build = "make",
+		opts = {
+			has_breadcrumbs = true,
+			bg_theme = "default",
+			watermark = "",
+			mac_window_bar = true,
+			title = "",
+			code_font_family = "JetBrainsMono Nerd Font",
+		},
 	},
 }

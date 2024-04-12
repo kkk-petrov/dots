@@ -25,6 +25,3 @@ visible = true
 [custom_ascii]
 color = "#ffffff"
 path = "~/.config/macchina/themes/ascii"
-
-# [keys]
-# de = "UI"

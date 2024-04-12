@@ -2,7 +2,6 @@ local wezterm = require("wezterm")
 
 local bar = require("config.bar")
 local keybindings = require("config.keybindings")
-local nvim = require("config.nvim")
 
 local config = wezterm.config_builder()
 

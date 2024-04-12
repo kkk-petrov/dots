@@ -13,7 +13,7 @@ set -e
 set -u
 
 # All supported choices
-all=(shutdown reboot suspend hibernate logout lockscreen)
+all=(shutdown reboot softreboot suspend hibernate logout lockscreen)
 
 # By default, show all (i.e., just copy the array)
 show=("${all[@]}")
@@ -25,6 +25,7 @@ texts[logout]="log out"
 texts[suspend]="suspend"
 texts[hibernate]="hibernate"
 texts[reboot]="reboot"
+texts[softreboot]="soft reboot"
 texts[shutdown]="shut down"
 
 declare -A icons
@@ -34,16 +35,18 @@ icons[logout]="\Uf0343"
 icons[suspend]="\Uf04b2"
 icons[hibernate]="\Uf02ca"
 icons[reboot]="\Uf0709"
+icons[softreboot]="\Uf0709"
 icons[shutdown]="\Uf0425"
 icons[cancel]="\Uf0156"
 
 declare -A actions
-actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
+actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID}"
 #actions[switchuser]="???"
-actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
+actions[logout]="loginctl terminate-session ${XDG_SESSION_ID}"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"
 actions[reboot]="systemctl reboot"
+actions[softreboot]="systemctl soft-reboot"
 actions[shutdown]="systemctl poweroff"
 
 # By default, ask for confirmation for actions that are irreversible

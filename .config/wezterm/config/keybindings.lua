@@ -30,6 +30,14 @@ function keymaps.apply(config)
 			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
 		},
 
+		-- Close pane
+		{
+			key = "q",
+			mods = "LEADER",
+			action = wezterm.action.CloseCurrentPane({ confirm = true }),
+		},
+
+		-- Send key
 		{
 			key = "a",
 			mods = "LEADER",
@@ -37,13 +45,6 @@ function keymaps.apply(config)
 				key = "a",
 				mods = "LEADER",
 			}),
-		},
-
-		-- Reload config
-		{
-			key = "r",
-			mods = "LEADER",
-			action = act.ReloadConfiguration,
 		},
 
 		-- Resize pane

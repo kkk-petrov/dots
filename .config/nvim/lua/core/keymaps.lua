@@ -1,12 +1,12 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
-local builtin = require("telescope.builtin")
-local ls = require("luasnip")
-local wezterm = require("wezterm")
 
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
--- SOME KEYMAPS ARE DEFINED IN plugins/ui/whichkey.lua --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+local telescope = require("telescope.builtin")
+local ls = require("luasnip")
+
+--> --- --- --- --- --- --- --- --- --- --- --- --- --- <--
+--> SOME KEYMAPS ARE DEFINED IN plugins/ui/whichkey.lua <--
+--> --- --- --- --- --- --- --- --- --- --- --- --- --- <--
 
 -- Navigation in insert mode
 opts.desc = "Up"
@@ -41,31 +41,49 @@ map("n", "<leader>m", "<cmd>Mason<CR>", opts)
 
 -- File explorer
 opts.desc = "Explorer"
+-- map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 map("n", "<leader>e", "<cmd>Neotree reveal_force_cwd filesystem toggle<CR>", opts)
 
 -- Telescope
 opts.desc = "Browse files"
 map("n", "<leader>/", "<cmd>Telescope file_browser path=%:p:h=%:p:h<cr>", opts)
 
+_G.picker_open = false
+local function search()
+	if _G.picker_open then
+		telescope.resume()
+	else
+		telescope.live_grep()
+		_G.picker_open = true
+	end
+end
+
+opts.desc = "Search"
+map("n", "<leader><Space>", search, opts)
+
 opts.desc = "Live grep"
-map("n", "<leader><Space>", builtin.live_grep, opts)
+map("n", "<leader>F", telescope.live_grep, opts)
 
 -- Save on CTRL + S
 opts.desc = "Save"
 map({ "n", "i", "v" }, "<C-s>", "<Esc><cmd>w<CR>", opts)
 
--- Resize window using <ctrl> arrow keys
+-- Resize window using <ctrl + arrow> keys
 opts.desc = "Increase window height"
 map("n", "<C-Up>", "<cmd>resize +2<cr>", opts)
+map("n", "<A-k>", "<cmd>resize +2<cr>", opts)
 
 opts.desc = "Decrease window height"
 map("n", "<C-Down>", "<cmd>resize -2<cr>", opts)
+map("n", "<A-j>", "<cmd>resize -2<cr>", opts)
 
 opts.desc = "Increase window width"
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", opts)
+map("n", "<A-l>", "<cmd>vertical resize +2<cr>", opts)
 
 opts.desc = "Decrease window width"
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", opts)
+map("n", "<A-h>", "<cmd>vertical resize -2<cr>", opts)
 
 -- Buffers
 opts.desc = "Move to previous buffer"
@@ -77,17 +95,6 @@ map("n", "<S-l>", "<Cmd>BufferLineCycleNext<CR>", opts)
 opts.desc = "Pick buffer"
 map("n", "<C-p>", "<Cmd>BufferLinePick<CR>", opts)
 
-opts.desc = "Go to N buffer"
-map("n", "<A-1>", "<Cmd>BufferLineGoToBuffer 1<CR>", opts)
-map("n", "<A-2>", "<Cmd>BufferLineGoToBuffer 2<CR>", opts)
-map("n", "<A-3>", "<Cmd>BufferLineGoToBuffer 3<CR>", opts)
-map("n", "<A-4>", "<Cmd>BufferLineGoToBuffer 4<CR>", opts)
-map("n", "<A-5>", "<Cmd>BufferLineGoToBuffer 5<CR>", opts)
-map("n", "<A-6>", "<Cmd>BufferLineGoToBuffer 6<CR>", opts)
-map("n", "<A-7>", "<Cmd>BufferLineGoToBuffer 7<CR>", opts)
-map("n", "<A-8>", "<Cmd>BufferLineGoToBuffer 8<CR>", opts)
-map("n", "<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
-
 -- Better indenting
 opts.desc = "Indent right"
 map("v", "<", "<gv", opts)
@@ -95,32 +102,9 @@ map("v", "<", "<gv", opts)
 opts.desc = "Indent left"
 map("v", ">", ">gv", opts)
 
--- Quit
-opts.desc = "Quit all"
-map("n", "<leader>Q", "<cmd>qa<cr>", opts)
-
 -- Clear search with <esc>
 opts.desc = "Escape and clear hlsearch"
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", opts)
-
--- LSP
-opts.desc = "Info"
-map("n", "K", vim.lsp.buf.hover, opts)
-
-opts.desc = "Go to definition"
-map("n", "gd", vim.lsp.buf.definition, opts)
-
-opts.desc = "LSP"
-map("n", "<leader>c", vim.lsp.buf.definition, opts)
-
-opts.desc = "Go to definition"
-map("n", "<leader>cd", vim.lsp.buf.definition, opts)
-
-opts.desc = "LSP references"
-map("n", "<leader>cr", vim.lsp.buf.references, opts)
-
-opts.desc = "Code actions"
-map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 
 -- Move visual
 opts.desc = "Move visual down"
@@ -134,16 +118,6 @@ map("v", "<A-h>", "<Plug>GoVSMLeft", opts)
 
 opts.desc = "Move visual right"
 map("v", "<A-l>", "<Plug>GoVSMRight", opts)
-
--- Toggle colorizer
-opts.desc = "Toggle colorizer"
-map("n", "<leader>h", "<cmd>ColorizerToggle<CR>", opts)
-
--- Projects
-opts.desc = "Projects"
-map("n", "<leader>p", function()
-	require("telescope").extensions.projects.projects({})
-end, opts)
 
 -- Luasnip
 opts.desc = "Jumping forward/expanding a snippet"
@@ -163,26 +137,101 @@ map({ "i", "s" }, "<C-E>", function()
 	end
 end, opts)
 
--- Better navigation
+-- Wezterm navigation
 opts.desc = "Switch active wezterm pane"
 map({ "n", "t" }, "<C-h>", "<CMD>NavigatorLeft<CR>")
 map({ "n", "t" }, "<C-l>", "<CMD>NavigatorRight<CR>")
 map({ "n", "t" }, "<C-k>", "<CMD>NavigatorUp<CR>")
 map({ "n", "t" }, "<C-j>", "<CMD>NavigatorDown<CR>")
--- map({'n', 't'}, '<C-p>', '<CMD>NavigatorPrevious<CR>')
 
-local function hurl()
-	local cmd = "hurl -v " .. vim.fn.expand("%") .. " | jq"
+-- Todo
+opts.desc = "Todo telescope"
+map("n", "<leader>cT", "<cmd>TodoTelescope<cr>", opts)
 
-	local handle = io.popen(cmd, "r")
-	local output = handle:read("*all")
-	handle:close()
+opts.desc = "Todo trouble"
+map("n", "<leader>xt", "<cmd>TodoTrouble<cr>", opts)
 
-	vim.api.nvim_command("new")
+-- UFO
+opts.desc = "Open all folds"
+map("n", "zR", require("ufo").openAllFolds)
+opts.desc = "Close all folds"
+map("n", "zM", require("ufo").closeAllFolds)
 
-	local bufnr = vim.api.nvim_get_current_buf()
-	vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, vim.split(output, "\n"))
-end
+-- Translate
+opts.desc = "Translate to russian"
+map("x", "<leader>tr", "<CMD>Translate ru<CR>")
 
-opts.desc = "Run hurl"
-map("n", "<leader>r", hurl, opts)
+opts.desc = "Translate to english"
+map("x", "<leader>te", "<CMD>Translate en<CR>")
+
+-- LSP
+opts.desc = "Show LSP references"
+map("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
+
+opts.desc = "Go to declaration"
+map("n", "gD", vim.lsp.buf.declaration, opts)
+
+opts.desc = "Show LSP definitions"
+map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+
+opts.desc = "Show LSP implementations"
+map("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+
+opts.desc = "Show LSP type definitions"
+map("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+
+opts.desc = "See available code actions"
+map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+
+opts.desc = "Smart rename"
+map("n", "<leader>cn", vim.lsp.buf.rename, opts)
+
+opts.desc = "Show buffer diagnostics"
+map("n", "<leader>cD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+
+opts.desc = "Show line diagnostics"
+map("n", "<leader>cd", vim.diagnostic.open_float, opts)
+
+opts.desc = "Go to previous diagnostic"
+map("n", "[d", vim.diagnostic.goto_prev, opts)
+
+opts.desc = "Go to next diagnostic"
+map("n", "]d", vim.diagnostic.goto_next, opts)
+
+opts.desc = "Show documentation"
+map("n", "K", vim.lsp.buf.hover, opts)
+
+opts.desc = "Restart LSP"
+map("n", "<leader>cr", ":LspRestart<CR>", opts)
+
+opts.desc = "Show LSP references"
+map("n", "<leader>cr", "<cmd>Telescope lsp_references<CR>", opts)
+
+opts.desc = "Go to declaration"
+map("n", "<leader>cD", vim.lsp.buf.declaration, opts)
+
+opts.desc = "Show LSP definitions"
+map("n", "<leader>cd", "<cmd>Telescope lsp_definitions<CR>", opts)
+
+opts.desc = "Show LSP implementations"
+map("n", "<leader>ci", "<cmd>Telescope lsp_implementations<CR>", opts)
+
+opts.desc = "Show LSP type definitions"
+map("n", "<leader>ct", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+
+-- TSTools
+opts.desc = "Organize imports"
+map("n", "<leader>co", "<cmd>TSToolsOrganizeImports<CR>", opts)
+
+opts.desc = "Remove unused imports"
+map("n", "<leader>cu", "<cmd>TSToolsRemoveUnusedImports<CR>", opts)
+
+opts.desc = "Add missing imports"
+map("n", "<leader>ct", "<cmd>TSToolsAddMissingImports<CR>", opts)
+
+opts.desc = "File references"
+map("n", "<leader>cR", "<cmd>TSToolsFileReferences<CR>", opts)
+
+-- CodeSnap
+opts.desc = "CodeSnap"
+map("x", "<leader>cs", ":CodeSnap<CR>", opts)

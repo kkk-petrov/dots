@@ -40,15 +40,15 @@ show_indicators = yes
 indicate_hidden = false 
 idle_threshold = 120s
 show_age_threshold = 60
-dmenu = /usr/bin/wofi -p dunst:
+dmenu = /usr/bin/rofi -p dunst:
 browser = /usr/bin/firefox --new-tab
 
 [urgency_low]
-background = "#232634"
+background = "#1e1e2e"
 foreground = "#99AEB3"
 
 [urgency_normal]
-background = "#232634"
+background = "#1e1e2e"
 foreground = "#99AEB3"
 
 [urgency_critical]

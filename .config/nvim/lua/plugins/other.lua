@@ -73,10 +73,6 @@ return {
 		opts = {},
 	},
 	{
-		"folke/neodev.nvim",
-		opts = {},
-	},
-	{
 		"mistricky/codesnap.nvim",
 		build = "make",
 		opts = {
@@ -87,5 +83,12 @@ return {
 			title = "",
 			code_font_family = "JetBrainsMono Nerd Font",
 		},
+	},
+	{
+		"stevearc/aerial.nvim",
+		opts = {},
+	},
+	{
+		"mrjones2014/smart-splits.nvim",
 	},
 }

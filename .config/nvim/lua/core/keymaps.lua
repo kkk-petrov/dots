@@ -3,10 +3,13 @@ local opts = { noremap = true, silent = true }
 
 local telescope = require("telescope.builtin")
 local ls = require("luasnip")
+local splits = require("smart-splits")
+local dap = require("dap")
+local dapui = require("dapui")
 
---> --- --- --- --- --- --- --- --- --- --- --- --- --- <--
---> SOME KEYMAPS ARE DEFINED IN plugins/ui/whichkey.lua <--
---> --- --- --- --- --- --- --- --- --- --- --- --- --- <--
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+--  SOME KEYMAPS ARE DEFINED IN plugins/whichkey.lua  --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 -- Navigation in insert mode
 opts.desc = "Up"
@@ -41,7 +44,6 @@ map("n", "<leader>m", "<cmd>Mason<CR>", opts)
 
 -- File explorer
 opts.desc = "Explorer"
--- map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 map("n", "<leader>e", "<cmd>Neotree reveal_force_cwd filesystem toggle<CR>", opts)
 
 -- Telescope
@@ -70,20 +72,20 @@ map({ "n", "i", "v" }, "<C-s>", "<Esc><cmd>w<CR>", opts)
 
 -- Resize window using <ctrl + arrow> keys
 opts.desc = "Increase window height"
-map("n", "<C-Up>", "<cmd>resize +2<cr>", opts)
-map("n", "<A-k>", "<cmd>resize +2<cr>", opts)
+map("n", "<C-Up>", "<cmd>SmartResizeUp<cr>", opts)
+map("n", "<A-k>", "<cmd>SmartResizeUp<cr>", opts)
 
 opts.desc = "Decrease window height"
-map("n", "<C-Down>", "<cmd>resize -2<cr>", opts)
-map("n", "<A-j>", "<cmd>resize -2<cr>", opts)
+map("n", "<C-Down>", "<cmd>SmartResizeDown<cr>", opts)
+map("n", "<A-j>", "<cmd>SmartResizeDown<cr>", opts)
 
 opts.desc = "Increase window width"
-map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", opts)
-map("n", "<A-l>", "<cmd>vertical resize +2<cr>", opts)
+map("n", "<C-Right>", "<cmd>SmartResizeRight<cr>", opts)
+map("n", "<A-l>", "<cmd>SmartResizeRight<cr>", opts)
 
 opts.desc = "Decrease window width"
-map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", opts)
-map("n", "<A-h>", "<cmd>vertical resize -2<cr>", opts)
+map("n", "<C-Left>", "<cmd>SmartResizeLeft<cr>", opts)
+map("n", "<A-h>", "<cmd>SmartResizeLeft<cr>", opts)
 
 -- Buffers
 opts.desc = "Move to previous buffer"
@@ -94,6 +96,16 @@ map("n", "<S-l>", "<Cmd>BufferLineCycleNext<CR>", opts)
 
 opts.desc = "Pick buffer"
 map("n", "<C-p>", "<Cmd>BufferLinePick<CR>", opts)
+
+-- Swap buffers
+opts.desc = "Swap left"
+map("n", "<leader>bh", splits.swap_buf_left, opts)
+opts.desc = "Swap down"
+map("n", "<leader>bj", splits.swap_buf_down, opts)
+opts.desc = "Swap up"
+map("n", "<leader>bk", splits.swap_buf_up, opts)
+opts.desc = "Swap right"
+map("n", "<leader>bl", splits.swap_buf_right, opts)
 
 -- Better indenting
 opts.desc = "Indent right"
@@ -235,3 +247,34 @@ map("n", "<leader>cR", "<cmd>TSToolsFileReferences<CR>", opts)
 -- CodeSnap
 opts.desc = "CodeSnap"
 map("x", "<leader>cs", ":CodeSnap<CR>", opts)
+
+-- Aerial
+opts.desc = "Aerial previous"
+map("n", "{", "<cmd>AerialPrev<CR>", opts)
+opts.desc = "Aerial next"
+map("n", "}", "<cmd>AerialNext<CR>", opts)
+opts.desc = "Aerial"
+map("n", "<leader>a", "<cmd>AerialToggle! right<CR>", opts)
+
+-- Zen mode
+opts.desc = "Zen mode"
+map("n", "<leader>z", "<cmd>ZenMode<CR>", opts)
+
+-- Debug
+opts.desc = "Run"
+map("n", "<leader>dr", dap.run, opts)
+
+opts.desc = "Continue"
+map("n", "<leader>dc", dap.continue, opts)
+
+opts.desc = "Toggle breakpoint"
+map("n", "<leader>dt", dap.toggle_breakpoint, opts)
+
+opts.desc = "Toggle UI"
+map("n", "<leader>du", dapui.toggle, opts)
+
+opts.desc = "Open float window"
+map("n", "<leader>df", function()
+	vim.print(dapui.elements)
+	dapui.float_element(nil, { width = nil, height = nil, enter = true })
+end, opts)

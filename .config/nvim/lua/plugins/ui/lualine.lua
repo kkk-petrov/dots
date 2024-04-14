@@ -164,7 +164,7 @@ local config = {
 				z = { fg = colors.bg, bg = colors.yellow },
 			},
 		},
-		disabled_filetypes = { "Lazy", "Mason", "neo-tree", "NvimTree" },
+		disabled_filetypes = { "Lazy", "Mason", "neo-tree", "NvimTree", "aerial" },
 	},
 	sections = {
 		lualine_a = {

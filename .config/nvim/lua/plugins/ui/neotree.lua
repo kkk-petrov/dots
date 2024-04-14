@@ -8,9 +8,9 @@ return {
 	},
 	opts = {
 		source_selector = {
-			winbar = false, -- toggle to show selector on winbar
+			winbar = true, -- toggle to show selector on winbar
 			statusline = false, -- toggle to show selector on statusline
-			show_scrolled_off_parent_node = false, -- boolean
+			show_scrolled_off_parent_node = true, -- boolean
 			sources = { -- table
 				{
 					source = "filesystem", -- string
@@ -44,6 +44,7 @@ return {
 			bind_to_cwd = false,
 			follow_current_file = { enabled = true },
 			use_libuv_file_watcher = true,
+			hijack_netrw_behavior = "open_current",
 		},
 		enable_git_status = true,
 		default_component_configs = {
@@ -55,11 +56,11 @@ return {
 					modified = "",
 					renamed = "󰁕",
 					-- Status type
-					untracked = "",
-					ignored = "",
-					unstaged = "",
-					staged = "",
-					conflict = "",
+					-- untracked = "",
+					-- ignored = "",
+					-- unstaged = "",
+					-- staged = "",
+					-- conflict = "",
 				},
 			},
 			modified = {
@@ -76,22 +77,24 @@ return {
 		},
 	},
 	config = function(_, opts)
+		vim.cmd([[
+      hi FileExplorer gui=bold,italic guibg=#151523 " bufferline offset
+      hi NeoTreeNormal guibg=#151523
+      hi NeoTreeNormalNC guibg=#151523
+      hi NeoTreeWinSeparator guibg=#1e1e2e guifg=#1e1e2e
+      hi NeoTreeStatusLine guibg=#1e1e2e guifg=#1e1e2e
+      hi NeoTreeTabInactive guibg=#151523
+      hi NeoTreeTabActive gui=bold,italic guifg=#BC9FE0 guibg=#151523
+      hi NeoTreeTabInactiveSeparator guibg=#151523 guifg=#151523
+      hi NeoTreeTabSeparatorInactive guibg=#151523 guifg=#151523
+      hi NeoTreeTabSeparatorActive guibg=#151523 guifg=#151523
+      hi NeoTreeEndOfBuffer guibg=#151523 guifg=#151523
+    ]])
+
 		vim.fn.sign_define("DiagnosticSignError", { text = "󰨐", texthl = "DiagnosticSignError" })
 		vim.fn.sign_define("DiagnosticSignWarn", { text = "󰨐", texthl = "DiagnosticSignWarn" })
 		vim.fn.sign_define("DiagnosticSignInfo", { text = "󰨐", texthl = "DiagnosticSignInfo" })
 		vim.fn.sign_define("DiagnosticSignHint", { text = "󰨐", texthl = "DiagnosticSignHint" })
-
-		vim.cmd([[
-      hi FileExplorer gui=bold,italic guibg=#151523
-      hi NeoTreeNormal guibg=#151523
-      hi NeoTreeNormalNC guibg=#151523
-      hi NeoTreeWinSeparator guibg=#151523 guifg=#151523
-      hi NeoTreeVertSplit guibg=#151523 guifg=#151523
-      hi NeoTreeStatusLine guibg=#151523 guifg=#151523
-      hi NeoTreeEndOfBuffer guibg=#151523 guifg=#151523
-      hi NeoTreeEndOfBuffer guibg=#151523 guifg=#151523
-    ]])
-
 		require("neo-tree").setup(opts)
 	end,
 }

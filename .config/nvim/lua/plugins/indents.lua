@@ -16,6 +16,7 @@ return {
 					"lazy",
 					"mason",
 					"NvimTree",
+					"aerial",
 				},
 			},
 		},
@@ -40,6 +41,7 @@ return {
 					"lazy",
 					"mason",
 					"NvimTree",
+					"aerial",
 				},
 				callback = function()
 					vim.b.miniindentscope_disable = true

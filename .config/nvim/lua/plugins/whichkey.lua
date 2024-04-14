@@ -21,7 +21,6 @@ return {
 			window = {
 				border = "none",
 				winblend = 0,
-				-- padding = { 1, 25, 1, 25 },
 			},
 			layout = {
 				spacing = 3, -- spacing between columns
@@ -32,6 +31,9 @@ return {
 		wk.register({
 			c = {
 				name = "code",
+			},
+			d = {
+				name = "debug",
 			},
 			f = {
 				name = "files",

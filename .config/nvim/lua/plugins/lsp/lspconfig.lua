@@ -2,6 +2,9 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		lazy = false,
+		dependencies = {
+			"folke/neodev.nvim",
+		},
 		config = function()
 			local lspconfig = require("lspconfig")
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -71,6 +74,9 @@ return {
 				capabilities = capabilities,
 				settings = {
 					Lua = {
+						completion = {
+							callSnippet = "Replace",
+						},
 						diagnostics = {
 							globals = { "vim" },
 						},

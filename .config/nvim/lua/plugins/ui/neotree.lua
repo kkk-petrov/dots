@@ -83,7 +83,7 @@ return {
 			NeoTreeNormalNC = { bg = colors.bg_dark },
 			NeoTreeWinSeparator = { bg = colors.bg, fg = colors.bg },
 			NeoTreeStatusLine = { bg = colors.bg, fg = colors.bg },
-			NeoTreeTabInactive = { bg = colors.bg_dark, fg = colors.gray },
+			NeoTreeTabInactive = { bg = colors.bg_dark, fg = colors.fg },
 			NeoTreeTabActive = { bold = true, italic = true, bg = colors.bg_dark, fg = colors.pink },
 			NeoTreeTabInactiveSeparator = { bg = colors.bg_dark, fg = colors.bg_dark },
 			NeoTreeTabSeparatorInactive = { bg = colors.bg_dark, fg = colors.bg_dark },

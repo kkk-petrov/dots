@@ -3,7 +3,6 @@ local M = {}
 M.colors = {
 	bg = "#1E1E2E",
 	bg_dark = "#151523",
-	bg_alt = "#313244",
 	fg = "#81869E",
 	yellow = "#F1CCCC",
 	red = "#EBA0AC",
@@ -11,10 +10,10 @@ M.colors = {
 	orange = "#FF8800",
 	violet = "#a9a1e1",
 	magenta = "#c678dd",
+	magenta_dark = "#623a75",
 	blue = "#89B4FA",
 	ltblue = "#B7BDF8",
 	pink = "#BC9FE0",
-	gray = "#6c7086",
 }
 
 M.icons = {

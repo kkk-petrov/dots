@@ -49,7 +49,7 @@ M.define_signs = function(signs)
 end
 
 ---This function defines highlights.
----@param signs table: A table containing the highlights to be defined.
+---@param highlights table: A table containing the highlights to be defined.
 M.define_highlights = function(highlights)
 	for name in pairs(highlights) do
 		local opts = highlights[name]

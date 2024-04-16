@@ -10,12 +10,13 @@ return {
 			require("plugins.coding.dap.config.js")
 			local colors = require("utils.ui").colors
 			local define_signs = require("utils").define_signs
-			local define_highlights = require("utils").define_signs
+			local define_highlights = require("utils").define_highlights
 
 			local highlights = {
 				DapBreakpoint = { ctermbg = 0, fg = colors.red, bg = colors.bg },
 				DapLogPoint = { ctermbg = 0, fg = colors.blue, bg = colors.bg },
-				DapStopped = { ctermbg = 0, fg = colors.yellow, bg = colors.bg },
+				DapStopped = { ctermbg = 0, fg = colors.magenta, bg = colors.bg },
+				DapStoppedLine = { ctermbg = 0, fg = "", bg = colors.magenta_dark },
 			}
 
 			local signs = {
@@ -27,7 +28,7 @@ return {
 					numhl = "DapBreakpoint",
 				},
 				DapLogPoint = { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "DapLogPoint" },
-				DapStopped = { text = "➜", texthl = "DapStopped", linehl = "", numhl = "DapStopped" },
+				DapStopped = { text = "➜", texthl = "DapStopped", linehl = "DapStoppedLine", numhl = "DapStopped" },
 			}
 
 			define_highlights(highlights)

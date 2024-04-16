@@ -1,6 +1,7 @@
 local map = require("utils").map
 local dap = require("dap")
 local dapui = require("dapui")
+local langs = require("plugins.coding.dap.config.js").langs
 local trouble = require("trouble")
 
 -- LSP
@@ -38,9 +39,9 @@ map("n", "<leader>da", function()
 	if vim.fn.filereadable(".vscode/launch.json") then
 		local dap_vscode = require("dap.ext.vscode")
 		dap_vscode.load_launchjs(nil, {
-			["pwa-node"] = require("plugins.dap.config.js").langs,
-			["chrome"] = require("plugins.dap.config.js").langs,
-			["pwa-chrome"] = require("plugins.dap.config.js").langs,
+			["pwa-node"] = langs,
+			["chrome"] = langs,
+			["pwa-chrome"] = langs,
 		})
 	end
 	require("dap").continue()

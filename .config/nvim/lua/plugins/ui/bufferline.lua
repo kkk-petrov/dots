@@ -1,43 +1,45 @@
+local colors = require("utils.ui").colors
+
 local highlights = {
 	fill = {
-		bg = "#151523",
+		bg = colors.bg,
 	},
 	background = {
-		bg = "#151523",
+		bg = colors.bg,
 	},
 	buffer_visible = {
-		bg = "#151523",
+		bg = colors.bg,
 	},
 	buffer_selected = {
-		bg = "#151523",
-		fg = "#BC9FE0",
+		bg = colors.bg,
+		fg = colors.pink,
 	},
 	separator_selected = {
-		bg = "#151523",
+		bg = colors.bg,
 	},
 	separator_visible = {
-		bg = "#151523",
+		bg = colors.bg,
 	},
 	separator = {
-		bg = "#151523",
+		bg = colors.bg,
 	},
 	indicator_visible = {
-		bg = "#151523",
+		bg = colors.bg,
 	},
 	indicator_selected = {
-		bg = "#151523",
+		bg = colors.bg,
 	},
 	modified = {
-		bg = "#151523",
+		bg = colors.bg,
 	},
 	modified_visible = {
-		bg = "#151523",
+		bg = colors.bg,
 	},
 	modified_selected = {
-		bg = "#151523",
+		bg = colors.bg,
 	},
 	offset_separator = {
-		bg = "#151523",
+		bg = colors.bg,
 	},
 }
 
@@ -65,12 +67,6 @@ return {
 					offsets = {
 						{
 							filetype = "neo-tree",
-							text = "Explorer",
-							highlight = "FileExplorer",
-							separator = true,
-						},
-						{
-							filetype = "NvimTree",
 							text = "Explorer",
 							highlight = "FileExplorer",
 							separator = true,

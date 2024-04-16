@@ -4,7 +4,7 @@ vim.g.skip_ts_context_commentstring_module = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-vim.o.foldcolumn = "1"
+vim.o.foldcolumn = "0"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
@@ -26,3 +26,5 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.langmap =
 	"ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
+
+_G.HOME = vim.fn.expand("~")

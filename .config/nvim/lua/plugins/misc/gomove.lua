@@ -1,0 +1,3 @@
+return {
+	"booperlv/nvim-gomove",
+}

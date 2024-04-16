@@ -1,3 +1,4 @@
+local colors = require("utils.ui").colors
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
@@ -10,7 +11,7 @@ return {
 		source_selector = {
 			winbar = true, -- toggle to show selector on winbar
 			statusline = false, -- toggle to show selector on statusline
-			show_scrolled_off_parent_node = true, -- boolean
+			show_scrolled_off_parent_node = false, -- boolean
 			sources = { -- table
 				{
 					source = "filesystem", -- string
@@ -31,7 +32,10 @@ return {
 			tabs_min_width = nil, -- int | nil
 			tabs_max_width = nil, -- int | nil
 			padding = 0, -- int | { left: int, right: int }
-			separator = { left = "▏", right = "▕" }, -- string | { left: string, right: string, override: string | nil }
+			separator = {
+				left = "",
+				right = "",
+			}, -- string | { left: string, right: string, override: string | nil }
 			separator_active = nil, -- string | { left: string, right: string, override: string | nil } | nil
 			show_separator_on_edge = false, -- boolean
 			highlight_tab = "NeoTreeTabInactive", -- string
@@ -50,17 +54,10 @@ return {
 		default_component_configs = {
 			git_status = {
 				symbols = {
-					-- Change type
 					added = "✚",
 					deleted = "✖",
 					modified = "",
 					renamed = "󰁕",
-					-- Status type
-					-- untracked = "",
-					-- ignored = "",
-					-- unstaged = "",
-					-- staged = "",
-					-- conflict = "",
 				},
 			},
 			modified = {
@@ -77,24 +74,33 @@ return {
 		},
 	},
 	config = function(_, opts)
-		vim.cmd([[
-      hi FileExplorer gui=bold,italic guibg=#151523 " bufferline offset
-      hi NeoTreeNormal guibg=#151523
-      hi NeoTreeNormalNC guibg=#151523
-      hi NeoTreeWinSeparator guibg=#1e1e2e guifg=#1e1e2e
-      hi NeoTreeStatusLine guibg=#1e1e2e guifg=#1e1e2e
-      hi NeoTreeTabInactive guibg=#151523
-      hi NeoTreeTabActive gui=bold,italic guifg=#BC9FE0 guibg=#151523
-      hi NeoTreeTabInactiveSeparator guibg=#151523 guifg=#151523
-      hi NeoTreeTabSeparatorInactive guibg=#151523 guifg=#151523
-      hi NeoTreeTabSeparatorActive guibg=#151523 guifg=#151523
-      hi NeoTreeEndOfBuffer guibg=#151523 guifg=#151523
-    ]])
+		local define_highlight = require("utils").define_highlights
+		local define_signs = require("utils").define_signs
 
-		vim.fn.sign_define("DiagnosticSignError", { text = "󰨐", texthl = "DiagnosticSignError" })
-		vim.fn.sign_define("DiagnosticSignWarn", { text = "󰨐", texthl = "DiagnosticSignWarn" })
-		vim.fn.sign_define("DiagnosticSignInfo", { text = "󰨐", texthl = "DiagnosticSignInfo" })
-		vim.fn.sign_define("DiagnosticSignHint", { text = "󰨐", texthl = "DiagnosticSignHint" })
+		local highlights = {
+			FileExplorer = { bold = false, italic = true, bg = colors.bg_dark, fg = colors.pink },
+			NeoTreeNormal = { bg = colors.bg_dark },
+			NeoTreeNormalNC = { bg = colors.bg_dark },
+			NeoTreeWinSeparator = { bg = colors.bg, fg = colors.bg },
+			NeoTreeStatusLine = { bg = colors.bg, fg = colors.bg },
+			NeoTreeTabInactive = { bg = colors.bg_dark, fg = colors.gray },
+			NeoTreeTabActive = { bold = true, italic = true, bg = colors.bg_dark, fg = colors.pink },
+			NeoTreeTabInactiveSeparator = { bg = colors.bg_dark, fg = colors.bg_dark },
+			NeoTreeTabSeparatorInactive = { bg = colors.bg_dark, fg = colors.bg_dark },
+			NeoTreeTabSeparatorActive = { bg = colors.bg_dark, fg = colors.bg_dark },
+			NeoTreeEndOfBuffer = { bg = colors.bg_dark, fg = colors.bg_dark },
+		}
+
+		local signs = {
+			DiagnosticSignError = { text = "󰨐", texthl = "DiagnosticSignError" },
+			DiagnosticSignWarn = { text = "󰨐", texthl = "DiagnosticSignWarn" },
+			DiagnosticSignInfo = { text = "󰨐", texthl = "DiagnosticSignInfo" },
+			DiagnosticSignHint = { text = "󰨐", texthl = "DiagnosticSignHint" },
+		}
+
+		define_highlight(highlights)
+		define_signs(signs)
+
 		require("neo-tree").setup(opts)
 	end,
 }

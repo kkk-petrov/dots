@@ -12,9 +12,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local paths = {
-	{ import = "plugins" },
-	{ import = "plugins.lsp" },
-	{ import = "plugins.dap" },
+	{ import = "plugins.coding" },
+	{ import = "plugins.coding.lsp" },
+	{ import = "plugins.coding.dap" },
+	{ import = "plugins.misc" },
+	{ import = "plugins.other" },
 	{ import = "plugins.ui" },
 }
 

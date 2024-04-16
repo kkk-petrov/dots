@@ -1,16 +1,5 @@
-local colors = {
-	bg = "#1E1E2E",
-	bg_alt = "#313244",
-	fg = "#81869E",
-	yellow = "#F1CCCC",
-	red = "#EBA0AC",
-	green = "#A6E3A1",
-	orange = "#FF8800",
-	violet = "#a9a1e1",
-	magenta = "#c678dd",
-	blue = "#89B4FA",
-	ltblue = "#B7BDF8",
-}
+local colors = require("utils.ui").colors
+local separators = require("utils.ui").icons.separators
 
 local conditions = {
 	buffer_not_empty = function()
@@ -63,7 +52,7 @@ local mode = {
 	"mode",
 	padding = { left = 2, right = 1 },
 	color = { gui = "bold" },
-	separator = { right = "" },
+	separator = { right = separators.rounded.right },
 	icon = "",
 }
 
@@ -109,7 +98,7 @@ local filename = {
 local cwd = {
 	get_cwd,
 	icon = "󰉖",
-	separator = { left = "" },
+	separator = { left = separators.rounded.left },
 	padding = { left = 1, right = 2 },
 }
 
@@ -133,8 +122,9 @@ local diff = {
 
 local config = {
 	options = {
+		globalstatus = false,
 		component_separators = "",
-		section_separators = { left = "", right = "" },
+		section_separators = { left = separators.rounded.right, right = separators.rounded.left },
 		theme = {
 			normal = {
 				a = { fg = colors.bg, bg = colors.violet },
@@ -164,7 +154,21 @@ local config = {
 				z = { fg = colors.bg, bg = colors.yellow },
 			},
 		},
-		disabled_filetypes = { "Lazy", "Mason", "neo-tree", "NvimTree", "aerial" },
+		disabled_filetypes = {
+			"Lazy",
+			"Mason",
+			"neo-tree",
+			"NvimTree",
+			"aerial",
+			"help",
+			"man",
+			"dap-repl",
+			"dapui_scopes",
+			"dapui_breakpoints",
+			"dapui_stacks",
+			"dapui_watches",
+			"dapui_console",
+		},
 	},
 	sections = {
 		lualine_a = {
@@ -179,10 +183,10 @@ local config = {
 			branch,
 		},
 		lualine_y = {
-			filename,
+			cwd,
 		},
 		lualine_z = {
-			cwd,
+			filename,
 		},
 	},
 	inactive_sections = {

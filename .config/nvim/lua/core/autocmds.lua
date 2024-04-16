@@ -23,10 +23,9 @@ autocmd({ "BufEnter", "BufWinEnter" }, {
 })
 
 autocmd("BufWinEnter", {
-	group = vim.api.nvim_create_augroup("help_window", {}),
-	pattern = { "*.txt" },
+	pattern = { "*" },
 	callback = function()
-		if vim.o.filetype == "help" then
+		if vim.o.filetype == "help" or vim.o.filetype == "man" then
 			vim.cmd.wincmd("L")
 		end
 	end,

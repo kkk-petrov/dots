@@ -1,0 +1,5 @@
+require("keymaps.navigation")
+require("keymaps.coding")
+require("keymaps.explore")
+require("keymaps.formatting")
+require("keymaps.other")

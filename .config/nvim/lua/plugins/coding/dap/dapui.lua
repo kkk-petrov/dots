@@ -25,16 +25,14 @@ return {
 	},
 	config = function(_, opts)
 		local dap, dapui = require("dap"), require("dapui")
-		local is_prompt_showed = false
 
 		dap.listeners.after.event_initialized["dapui_config"] = function()
-			is_prompt_showed = false
 			dapui.open()
 		end
 		dap.listeners.before.event_exited["dapui_config"] = function()
 			dapui.close()
 		end
-		dap.listeners.after.event_terminated["dapui_config"] = function(arg)
+		dap.listeners.after.event_terminated["dapui_config"] = function()
 			-- dapui.close()
 			-- if not is_prompt_showed then
 			-- 	is_prompt_showed = true

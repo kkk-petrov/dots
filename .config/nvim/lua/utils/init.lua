@@ -1,59 +1,67 @@
 local M = {}
 
----This function replicates a value and returns it as a list.
----@param val any: The value to be replicated. (any Lua type)
----@param count integer: The number of times to replicate the value. (positive integer)
----@return ...: A list containing n copies of the value x.
-M.replicate = function(val, count)
-	if type(count) == "number" and count > 1 then
-		local result = {}
-
-		for i = 1, count, 1 do
-			result[i] = val
-		end
-
-		if not table.unpack then
-			---@diagnostic disable-next-line: deprecated
-			table.unpack = unpack
-		end
-
-		return table.unpack(result)
-	else
-		error("Error: count must be a positive integer")
-	end
-end
-
----This function defines a keymap.
----@param mode string|table: The mode in which the keymap should be defined, can be a table of modes
----@param keys string: The keys to be mapped.
----@param action string|function: The action to be executed when the key is pressed, can be a lua function).
----@param desc string|nil: The description of the keymap.
-M.map = function(mode, keys, action, desc)
-	local opts = {
+M.set_keymap = function(mode, keys, action, desc)
+	vim.keymap.set(mode, keys, action, {
 		silent = true,
 		noremap = true,
 		nowait = false,
 		desc = desc,
-	}
-
-	vim.keymap.set(mode, keys, action, opts)
+	})
 end
 
----This function defines signs.
----@param signs table: A table containing the signs to be defined.
-M.define_signs = function(signs)
-	for name in pairs(signs) do
-		local opts = signs[name]
-		vim.fn.sign_define(name, opts)
+M.get_cwd = function()
+	return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+end
+
+M.get_file_icon = function(filename)
+	local icons = require("nvim-web-devicons")
+	return icons.get_icon(filename, vim.fn.fnamemodify(filename, ":e"), { default = true })
+end
+
+M.get_lsp = function()
+	local msg = "LSP"
+	local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+	local clients = vim.lsp.get_active_clients()
+	if next(clients) == nil then
+		return msg
 	end
+	for _, client in ipairs(clients) do
+		local filetypes = client.config.filetypes
+		if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+			return client.name
+		end
+	end
+	return msg
 end
 
----This function defines highlights.
----@param highlights table: A table containing the highlights to be defined.
-M.define_highlights = function(highlights)
-	for name in pairs(highlights) do
-		local opts = highlights[name]
-		vim.api.nvim_set_hl(0, name, opts)
+M.merge_tables = function(t1, t2)
+	for k, v in pairs(t2) do
+		if type(v) == "table" then
+			if type(t1[k] or false) == "table" then
+				M.merge_tables(t1[k] or {}, t2[k] or {})
+			else
+				t1[k] = v
+			end
+		end
 	end
+	return t1
 end
+
+M.get_mode = function()
+	local m = vim.api.nvim_get_mode().mode
+	print(m)
+
+	if m == "i" then
+		return "INSERT"
+	elseif m == "v" or m == "V" then
+		return "VISUAL"
+	elseif m == "r" then
+		return "REPLACE"
+	elseif m == "c" then
+		return "COMMAND"
+	end
+
+	return "NORMAL"
+end
+
 return M

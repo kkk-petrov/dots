@@ -1,5 +1,8 @@
-local colors = require("utils.ui").colors
-local separators = require("utils.ui").icons.separators
+local colors = require("ui.assets").colors
+local separators = require("ui.assets").separators
+local utils = require("utils")
+
+local bg = CONFIG.transparency and "NONE" or colors.bg
 
 local conditions = {
 	buffer_not_empty = function()
@@ -22,84 +25,54 @@ local conditions = {
 	end,
 }
 
-local function get_cwd()
-	return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-end
-
-local function get_file_icon(filename)
-	local icons = require("nvim-web-devicons")
-	return icons.get_icon(filename, vim.fn.fnamemodify(filename, ":e"), { defaults = "true" })
-end
-
-local function get_lsp()
-	local msg = "LSP"
-	local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-	local clients = vim.lsp.get_active_clients()
-	if next(clients) == nil then
-		return msg
-	end
-	for _, client in ipairs(clients) do
-		local filetypes = client.config.filetypes
-		if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-			return client.name
-		end
-	end
-	return msg
-end
-
 -- Components
 local mode = {
 	"mode",
-	padding = { left = 2, right = 1 },
-	color = { gui = "bold" },
+	padding = { left = 2, right = 2 },
 	separator = { right = separators.rounded.right },
 	icon = "",
-}
-
-local progress = {
-	"progress",
-	padding = { left = 1, right = 0 },
-	color = { fg = colors.fg },
-}
-
-local location = {
-	"location",
-	padding = { left = 1, right = 0 },
+	color = { bg = colors.violet, fg = colors.bg, gui = "italic" },
 }
 
 local lsp = {
-	get_lsp,
-	icon = "",
-	padding = 1,
+	utils.get_lsp,
+	icon = "",
+	padding = { left = 1, right = 1 },
 	cond = conditions.lsp_not_empty,
-	color = { fg = colors.violet },
 }
 
 local diagnostics = {
 	"diagnostics",
-	sources = { "nvim_diagnostic" },
+	sources = { "nvim_diagnostic", "nvim_lsp" },
 	symbols = { error = " ", warn = " ", hint = " ", info = " " },
-	diagnostics_color = {
-		color_error = { fg = colors.red },
-		color_warn = { fg = colors.yellow },
-		color_hint = { fg = colors.green },
-		color_info = { fg = colors.cyan },
-	},
-	padding = { left = 2 },
+	sections = { "error", "warn", "info", "hint" },
+	padding = { left = 2, right = 1 },
 	separator = { right = "", left = "" },
+	diagnostics_color = {
+		error = "DiagnosticError", -- Changes diagnostics' error color.
+		warn = "DiagnosticWarn", -- Changes diagnostics' warn color.
+		info = "DiagnosticInfo", -- Changes diagnostics' info color.
+		hint = "DiagnosticHint", -- Changes diagnostics' hint color.
+	},
+	colored = true, -- Displays diagnostics status in color if set to true.
+	update_in_insert = true, -- Update diagnostics in insert mode.
+	always_visible = false, -- Show diagnostics even if there are none.
 }
 
 local filename = {
 	"filename",
 	cond = conditions.buffer_not_empty,
-	icon = get_file_icon(vim.fn.expand("%:t")),
+	icon = utils.get_file_icon(vim.fn.expand("%:t")),
+	separator = { left = separators.rounded.left },
+	padding = { left = 1, right = 1 },
 }
 
 local cwd = {
-	get_cwd,
+	utils.get_cwd,
 	icon = "󰉖",
 	separator = { left = separators.rounded.left },
-	padding = { left = 1, right = 2 },
+	padding = { left = 1, right = 1 },
+	color = { bg = colors.red, fg = colors.bg, gui = "italic" },
 }
 
 local branch = {
@@ -117,44 +90,51 @@ local diff = {
 		modified = { fg = colors.magenta },
 		removed = { fg = colors.red },
 	},
-	cond = conditions.hide_in_width,
 }
 
 local config = {
 	options = {
-		globalstatus = false,
+		globalstatus = CONFIG.global_statusline,
 		component_separators = "",
-		section_separators = { left = separators.rounded.right, right = separators.rounded.left },
+		section_separators = { left = separators.rounded.left, right = separators.rounded.right },
 		theme = {
 			normal = {
 				a = { fg = colors.bg, bg = colors.violet },
-				c = { fg = colors.fg, bg = colors.bg },
-				x = { fg = colors.fg, bg = colors.bg },
-				y = { fg = colors.bg, bg = colors.red },
-				z = { fg = colors.bg, bg = colors.yellow },
+				y = { fg = colors.bg, bg = colors.yellow },
 			},
 			insert = {
 				a = { fg = colors.bg, bg = colors.red },
-				y = { fg = colors.bg, bg = colors.red },
-				z = { fg = colors.bg, bg = colors.yellow },
+				y = { fg = colors.bg, bg = colors.yellow },
 			},
 			visual = {
 				a = { fg = colors.bg, bg = colors.blue },
-				y = { fg = colors.bg, bg = colors.red },
-				z = { fg = colors.bg, bg = colors.yellow },
+				y = { fg = colors.bg, bg = colors.yellow },
 			},
 			replace = {
 				a = { fg = colors.bg, bg = colors.red },
-				y = { fg = colors.bg, bg = colors.red },
-				z = { fg = colors.bg, bg = colors.yellow },
+				y = { fg = colors.bg, bg = colors.yellow },
 			},
 			command = {
 				a = { fg = colors.bg, bg = colors.yellow },
-				y = { fg = colors.bg, bg = colors.red },
-				z = { fg = colors.bg, bg = colors.yellow },
+				y = { fg = colors.bg, bg = colors.yellow },
 			},
 		},
 		disabled_filetypes = {
+			"Lazy",
+			"Mason",
+			"neo-tree",
+			"NvimTree",
+			"aerial",
+			"help",
+			"man",
+			"dap-repl",
+			"dapui_scopes",
+			"dapui_breakpoints",
+			"dapui_stacks",
+			"dapui_watches",
+			"dapui_console",
+		},
+		ignore_focus = {
 			"Lazy",
 			"Mason",
 			"neo-tree",
@@ -179,23 +159,16 @@ local config = {
 		},
 		lualine_c = {},
 		lualine_x = {
-			diff,
+			lsp,
 			branch,
+			diff,
 		},
 		lualine_y = {
-			cwd,
-		},
-		lualine_z = {
 			filename,
 		},
-	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_y = {},
-		lualine_z = {},
-		lualine_c = {},
-		lualine_x = {},
+		lualine_z = {
+			cwd,
+		},
 	},
 }
 

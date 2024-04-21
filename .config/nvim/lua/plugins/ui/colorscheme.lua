@@ -7,8 +7,8 @@ return {
 			light = "latte",
 			dark = "mocha",
 		},
-		transparent_background = false,
-		default_integrations = true,
+		transparent_background = true,
+		default_integrations = true, -- cdd6f4
 		dim_inactive = {
 			enabled = false,
 			shade = "dark",

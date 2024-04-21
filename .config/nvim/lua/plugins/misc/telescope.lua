@@ -6,6 +6,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-file-browser.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
+			"nvim-telescope/telescope-dap.nvim",
 		},
 		config = function()
 			require("telescope").setup({
@@ -23,6 +24,7 @@ return {
 
 			require("telescope").load_extension("ui-select")
 			require("telescope").load_extension("file_browser")
+			require("telescope").load_extension("dap")
 		end,
 	},
 }

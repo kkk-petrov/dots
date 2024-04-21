@@ -16,7 +16,6 @@ local paths = {
 	{ import = "plugins.coding.lsp" },
 	{ import = "plugins.coding.dap" },
 	{ import = "plugins.misc" },
-	{ import = "plugins.other" },
 	{ import = "plugins.ui" },
 }
 

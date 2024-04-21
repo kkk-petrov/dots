@@ -13,7 +13,7 @@ return {
 				floating = {
 					style = "minimal",
 					focusable = true,
-					border = { "", "", "", "", "", "", "", "" },
+					border = require("ui.assets").border or "rounded",
 					zindex = 51,
 				},
 			},

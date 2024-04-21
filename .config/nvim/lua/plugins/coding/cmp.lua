@@ -1,20 +1,30 @@
 return {
 	{
-		"hrsh7th/cmp-nvim-lsp",
-	},
-	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lua",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 		},
 		config = function()
-			local lspkind = require("lspkind")
-			local cmp = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
 
+			local lspkind = require("lspkind")
+			local cmp = require("cmp")
+			local border = require("ui.assets").border
+
 			cmp.setup({
+				window = {
+					completion = {
+						border = border,
+					},
+					documentation = {
+						border = border,
+						-- max_height = 20,
+					},
+				},
 				snippet = {
 					expand = function(args)
 						require("luasnip").lsp_expand(args.body)
@@ -30,15 +40,15 @@ return {
 					["<C-e>"] = cmp.mapping.abort(),
 				}),
 				sources = cmp.config.sources({
+					{ name = "nvim_lsp_signature_help" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
+					{ name = "spell", keyword_length = 3, priority = 5, keyword_pattern = [[\w\+]] },
+					{ name = "nvim_lua", priority = 5 },
+					{ name = "calc", priority = 3 },
 					{ name = "buffer" },
 					{ name = "path" },
-					{
-						name = "codeium",
-						group_index = 1,
-						priority = 100,
-					},
+					{ name = "codeium", group_index = 1, priority = 100 },
 				}),
 				formatting = {
 					format = lspkind.cmp_format({
@@ -50,6 +60,13 @@ return {
 							return vim_item
 						end,
 					}),
+				},
+				matching = {
+					disallow_fuzzy_matching = true,
+					disallow_fullfuzzy_matching = true,
+					disallow_partial_fuzzy_matching = true,
+					disallow_partial_matching = true,
+					disallow_prefix_unmatching = false,
 				},
 			})
 		end,

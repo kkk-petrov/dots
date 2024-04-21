@@ -15,7 +15,7 @@ local config = {
 dap.adapters.firefox = {
 	type = "executable",
 	command = "node",
-	args = { _G.HOME .. "/code/debug/vscode-firefox-debug/dist/adapter.bundle.js" },
+	args = { HOME .. "/code/debug/vscode-firefox-debug/dist/adapter.bundle.js" },
 }
 
 for _, lang in ipairs(config.langs) do
@@ -81,7 +81,7 @@ for _, lang in ipairs(config.langs) do
 					end)
 				end)
 			end,
-			preLaunchTask = "task: dev",
+			preLaunchTask = "npm: dev",
 			protocol = "inspector",
 			sourceMaps = true,
 			userDataDir = false,

@@ -10,6 +10,9 @@ return {
 			{
 				"Joakker/lua-json5",
 				build = "./install.sh",
+				config = function()
+					table.insert(vim._so_trails, "/?.dylib")
+				end,
 			},
 		},
 		config = function()

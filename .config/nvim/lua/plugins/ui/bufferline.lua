@@ -1,45 +1,47 @@
-local colors = require("utils.ui").colors
+local colors = require("ui.assets").colors
+
+local bg = CONFIG.transparency and "NONE" or colors.bg
 
 local highlights = {
 	fill = {
-		bg = colors.bg,
+		bg = bg,
 	},
 	background = {
-		bg = colors.bg,
+		bg = bg,
 	},
 	buffer_visible = {
-		bg = colors.bg,
+		bg = bg,
 	},
 	buffer_selected = {
-		bg = colors.bg,
-		fg = colors.pink,
+		bg = bg,
+		fg = colors.violet,
 	},
 	separator_selected = {
-		bg = colors.bg,
+		bg = bg,
 	},
 	separator_visible = {
-		bg = colors.bg,
+		bg = bg,
 	},
 	separator = {
-		bg = colors.bg,
+		bg = bg,
 	},
 	indicator_visible = {
-		bg = colors.bg,
+		bg = bg,
 	},
 	indicator_selected = {
-		bg = colors.bg,
+		bg = bg,
 	},
 	modified = {
-		bg = colors.bg,
+		bg = bg,
 	},
 	modified_visible = {
-		bg = colors.bg,
+		bg = bg,
 	},
 	modified_selected = {
-		bg = colors.bg,
+		bg = bg,
 	},
 	offset_separator = {
-		bg = colors.bg,
+		bg = bg,
 	},
 }
 
@@ -55,12 +57,12 @@ return {
 				options = {
 					style_preset = bufferline.style_preset.minimal,
 					themable = true,
-					separator_style = "thin",
-					show_buffer_icons = true,
+					show_buffer_icons = false,
 					show_buffer_close_icons = false,
 					show_close_icon = false,
 					show_tab_indicators = false,
 					modified_icon = "󰨐",
+					separator_style = { "", "" },
 					indicator = {
 						style = "none",
 					},

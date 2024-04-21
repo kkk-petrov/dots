@@ -1,4 +1,3 @@
-local colors = require("utils.ui").colors
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
@@ -46,7 +45,19 @@ return {
 		},
 		filesystem = {
 			bind_to_cwd = false,
-			follow_current_file = { enabled = true },
+			follow_current_file = {
+				enabled = true,
+				update_root = true,
+				update_cwd = true,
+				ignore_list = {
+					"dap-repl",
+					"dapui_scopes",
+					"dapui_breakpoints",
+					"dapui_stacks",
+					"dapui_watches",
+					"dapui_console",
+				},
+			},
 			use_libuv_file_watcher = true,
 			hijack_netrw_behavior = "open_current",
 		},
@@ -74,33 +85,6 @@ return {
 		},
 	},
 	config = function(_, opts)
-		local define_highlight = require("utils").define_highlights
-		local define_signs = require("utils").define_signs
-
-		local highlights = {
-			FileExplorer = { bold = false, italic = true, bg = colors.bg_dark, fg = colors.pink },
-			NeoTreeNormal = { bg = colors.bg_dark },
-			NeoTreeNormalNC = { bg = colors.bg_dark },
-			NeoTreeWinSeparator = { bg = colors.bg, fg = colors.bg },
-			NeoTreeStatusLine = { bg = colors.bg, fg = colors.bg },
-			NeoTreeTabInactive = { bg = colors.bg_dark, fg = colors.fg },
-			NeoTreeTabActive = { bold = true, italic = true, bg = colors.bg_dark, fg = colors.pink },
-			NeoTreeTabInactiveSeparator = { bg = colors.bg_dark, fg = colors.bg_dark },
-			NeoTreeTabSeparatorInactive = { bg = colors.bg_dark, fg = colors.bg_dark },
-			NeoTreeTabSeparatorActive = { bg = colors.bg_dark, fg = colors.bg_dark },
-			NeoTreeEndOfBuffer = { bg = colors.bg_dark, fg = colors.bg_dark },
-		}
-
-		local signs = {
-			DiagnosticSignError = { text = "󰨐", texthl = "DiagnosticSignError" },
-			DiagnosticSignWarn = { text = "󰨐", texthl = "DiagnosticSignWarn" },
-			DiagnosticSignInfo = { text = "󰨐", texthl = "DiagnosticSignInfo" },
-			DiagnosticSignHint = { text = "󰨐", texthl = "DiagnosticSignHint" },
-		}
-
-		define_highlight(highlights)
-		define_signs(signs)
-
 		require("neo-tree").setup(opts)
 	end,
 }

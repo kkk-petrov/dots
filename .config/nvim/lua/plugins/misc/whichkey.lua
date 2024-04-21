@@ -9,20 +9,30 @@ return {
 		local wk = require("which-key")
 
 		wk.setup({
-			plugins = { spelling = true },
+			plugins = { spelling = true, marks = false, registers = false },
+			motions = {
+				count = false,
+			},
 			icons = {
 				breadcrumb = ">",
-				separator = "➜",
+				separator = "➜", --
 				group = "$",
 			},
 			window = {
-				border = "none",
+				border = { "", "─", "", "", "", "", "", "" },
 				winblend = 0,
+				zindex = 1000,
+				margin = { 0, 0, 0, 0 },
+				padding = { 1, 2, 1, 8 },
 			},
 			layout = {
-				spacing = 3, -- spacing between columns
-				align = "center", -- align columns left, center or right
+				height = { min = 4 },
+				spacing = 3,
+				align = "center",
 			},
+
+			show_help = false,
+			show_keys = false,
 		})
 
 		wk.register({
@@ -33,7 +43,7 @@ return {
 				name = "debug",
 			},
 			f = {
-				name = "explore",
+				name = "find",
 			},
 			g = {
 				name = "git",

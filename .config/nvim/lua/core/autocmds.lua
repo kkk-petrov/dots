@@ -8,9 +8,7 @@ autocmd("FileType", {
 		vim.opt_local.foldenable = false
 		vim.wo.foldcolumn = "0"
 	end,
-})
-
--- Disable insert mode
+}) -- Disable insert mode
 autocmd({ "BufEnter", "BufWinEnter" }, {
 	group = vim.api.nvim_create_augroup("DisableInsertMode", {}),
 	pattern = "?*",
@@ -50,3 +48,17 @@ autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.json" }, 
 
 -- Enable spell checking for certain file types
 autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" })
+
+-- Set current file icon (needed for lualine)
+autocmd("BufEnter", {
+	pattern = "*",
+	callback = function()
+		if vim.bo.filetype ~= "neo-tree" then
+			CURRENT_FILE_ICON = require("nvim-web-devicons").get_icon(
+				vim.fn.expand("%:t"),
+				vim.fn.fnamemodify(vim.fn.expand("%"), ":e"),
+				{ default = true }
+			)
+		end
+	end,
+})

@@ -2,6 +2,8 @@ table.unpack = table.unpack or unpack -- 5.1 compatability
 
 HOME = vim.fn.expand("~")
 
+CURRENT_FILE_ICON = nil
+
 P = function(v)
 	print(vim.print(v))
 	return v

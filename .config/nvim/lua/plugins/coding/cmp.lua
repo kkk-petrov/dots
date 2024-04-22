@@ -18,10 +18,12 @@ return {
 			cmp.setup({
 				window = {
 					completion = {
+						winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None",
 						border = border,
 					},
 					documentation = {
 						border = border,
+						winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None",
 						-- max_height = 20,
 					},
 				},

@@ -1,6 +1,6 @@
 local colors = require("ui.assets").colors
 
-local define = function(highlights)
+local define_highlights = function(highlights)
 	for name, opts in pairs(highlights) do
 		vim.api.nvim_set_hl(0, name, opts)
 	end
@@ -12,6 +12,7 @@ local highlights = {
 	CursorLine = { bg = colors.purple_dark },
 	CursorLineNr = { fg = colors.violet, italic = true },
 	Normal = { bg = bg, fg = colors.fg },
+	NormalNC = { bg = bg, fg = colors.fg },
 	Float = { bg = bg, fg = colors.fg },
 	NormalFloat = { bg = bg },
 	FloatBorder = { fg = colors.purple_dark, bg = bg, bold = true },
@@ -82,4 +83,4 @@ local highlights = {
 	DiagnosticHint = { fg = colors.cyan, bg = bg },
 }
 
-define(highlights)
+define_highlights(highlights)

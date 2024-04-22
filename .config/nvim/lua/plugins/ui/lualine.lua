@@ -31,14 +31,17 @@ local mode = {
 	padding = { left = 2, right = 2 },
 	separator = { right = separators.rounded.right },
 	icon = "",
-	color = { bg = colors.violet, fg = colors.bg, gui = "italic" },
+	color = { gui = "italic" },
 }
 
-local lsp = {
-	utils.get_lsp,
-	icon = "",
+local lsp_progress = {
+	"lsp_progress",
 	padding = { left = 1, right = 1 },
 	cond = conditions.lsp_not_empty,
+	color = { bg = bg, fg = colors.violet, gui = "italic" },
+	display_components = { "lsp_client_name", "spinner" },
+	timer = { progress_enddelay = 500, spinner = 500, lsp_client_name_enddelay = 0 },
+	spinner_symbols = { "󰪞 ", "󰪟 ", "󰪠 ", "󰪡 ", "󰪢 ", "󰪣 ", "󰪤 ", "󰪥 " },
 }
 
 local diagnostics = {
@@ -49,22 +52,24 @@ local diagnostics = {
 	padding = { left = 2, right = 1 },
 	separator = { right = "", left = "" },
 	diagnostics_color = {
-		error = "DiagnosticError", -- Changes diagnostics' error color.
-		warn = "DiagnosticWarn", -- Changes diagnostics' warn color.
-		info = "DiagnosticInfo", -- Changes diagnostics' info color.
-		hint = "DiagnosticHint", -- Changes diagnostics' hint color.
+		error = "DiagnosticError",
+		warn = "DiagnosticWarn",
+		info = "DiagnosticInfo",
+		hint = "DiagnosticHint",
 	},
 	colored = true, -- Displays diagnostics status in color if set to true.
 	update_in_insert = true, -- Update diagnostics in insert mode.
 	always_visible = false, -- Show diagnostics even if there are none.
 }
-
 local filename = {
-	"filename",
+	function()
+		local name = vim.fn.expand("%:t")
+		return CURRENT_FILE_ICON .. " " .. utils.truncate(name, 40)
+	end,
 	cond = conditions.buffer_not_empty,
-	icon = utils.get_file_icon(vim.fn.expand("%:t")),
 	separator = { left = separators.rounded.left },
 	padding = { left = 1, right = 1 },
+	color = { bg = colors.yellow, fg = colors.bg, gui = "italic" },
 }
 
 local cwd = {
@@ -78,7 +83,7 @@ local cwd = {
 local branch = {
 	"branch",
 	icon = "",
-	color = { fg = colors.violet, gui = "bold" },
+	color = { bg = bg, fg = colors.violet, gui = "italic" },
 	padding = { left = 1, right = 1 },
 }
 
@@ -90,33 +95,41 @@ local diff = {
 		modified = { fg = colors.magenta },
 		removed = { fg = colors.red },
 	},
+	color = { bg = bg, gui = "italic" },
+}
+
+local empty = {
+	function()
+		return ""
+	end,
+	-- color = { bg = bg },
 }
 
 local config = {
 	options = {
 		globalstatus = CONFIG.global_statusline,
 		component_separators = "",
-		section_separators = { left = separators.rounded.left, right = separators.rounded.right },
+		section_separators = { left = "", right = "" },
 		theme = {
 			normal = {
 				a = { fg = colors.bg, bg = colors.violet },
-				y = { fg = colors.bg, bg = colors.yellow },
+				c = { bg = bg },
 			},
 			insert = {
 				a = { fg = colors.bg, bg = colors.red },
-				y = { fg = colors.bg, bg = colors.yellow },
+				c = { bg = bg },
 			},
 			visual = {
 				a = { fg = colors.bg, bg = colors.blue },
-				y = { fg = colors.bg, bg = colors.yellow },
+				c = { bg = bg },
 			},
 			replace = {
 				a = { fg = colors.bg, bg = colors.red },
-				y = { fg = colors.bg, bg = colors.yellow },
+				c = { bg = bg },
 			},
 			command = {
 				a = { fg = colors.bg, bg = colors.yellow },
-				y = { fg = colors.bg, bg = colors.yellow },
+				c = { bg = bg },
 			},
 		},
 		disabled_filetypes = {
@@ -159,14 +172,13 @@ local config = {
 		},
 		lualine_c = {},
 		lualine_x = {
-			lsp,
+			lsp_progress,
 			branch,
 			diff,
 		},
-		lualine_y = {
-			filename,
-		},
+		lualine_y = {},
 		lualine_z = {
+			filename,
 			cwd,
 		},
 	},
@@ -175,6 +187,7 @@ local config = {
 return {
 	{
 		"nvim-lualine/lualine.nvim",
+		dependencies = { "arkav/lualine-lsp-progress" },
 		config = function()
 			require("lualine").setup(config)
 		end,

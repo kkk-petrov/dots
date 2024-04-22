@@ -1,3 +1,5 @@
+require("utils.globals")
+
 local M = {}
 
 M.set_keymap = function(mode, keys, action, desc)
@@ -10,12 +12,7 @@ M.set_keymap = function(mode, keys, action, desc)
 end
 
 M.get_cwd = function()
-	return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-end
-
-M.get_file_icon = function(filename)
-	local icons = require("nvim-web-devicons")
-	return icons.get_icon(filename, vim.fn.fnamemodify(filename, ":e"), { default = true })
+	return vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " "
 end
 
 M.get_lsp = function()
@@ -62,6 +59,10 @@ M.get_mode = function()
 	end
 
 	return "NORMAL"
+end
+
+M.truncate = function(str, n)
+	return str:sub(1, n - 1) .. (str:len() > n and "..." or "")
 end
 
 return M

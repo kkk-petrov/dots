@@ -10,6 +10,7 @@ local splits = require("smart-splits")
 local ls = require("luasnip")
 local conform = require("conform")
 local lint = require("lint")
+local lsp_utils = require("utils.lsp")
 
 -- LSP
 set_keymap("n", "gR", ":lua vim.lsp.buf.references({ includeDeclaration = false })", "References")
@@ -34,6 +35,20 @@ set_keymap("n", "<leader>cq", ":LspRestart<CR>", "Restart LSP")
 set_keymap("n", "<leader>co", "<cmd>TSToolsOrganizeImports<CR>", "Organize imports")
 set_keymap("n", "<leader>cu", "<cmd>TSToolsRemoveUnusedImports<CR>", "Remove unused imports")
 set_keymap("n", "<leader>cm", "<cmd>TSToolsAddMissingImports<CR>", "Add missing imports")
+set_keymap(
+	"n",
+	"<leader>cf",
+	lsp_utils.format,
+	-- function ()
+	-- conform.format({
+	-- 	lsp_fallback = true,
+	-- 	async = false,
+	-- 	timeout_ms = 500,
+	-- })
+	-- end
+	"Format file"
+)
+set_keymap("n", "<leader>cs", lsp_utils.toggle_format_on_save, "Toggle format on save")
 
 -- Debug
 set_keymap("n", "<leader>dc", dap.continue, "Continue")
@@ -227,15 +242,6 @@ set_keymap("v", "X", '"_X', "Delete char")
 
 -- Don't yank on visual paste
 set_keymap("v", "p", '"_dP', "Paste")
-
--- Formatting
-set_keymap("n", "<leader>cf", function()
-	conform.format({
-		lsp_fallback = true,
-		async = false,
-		timeout_ms = 500,
-	})
-end, "Format file")
 
 set_keymap("v", "<leader>f", function()
 	conform.format({

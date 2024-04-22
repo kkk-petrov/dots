@@ -1,61 +1,13 @@
-local mason_ok, mason = pcall(require, "mason")
-local mason_lsp_ok, mason_lsp = pcall(require, "mason-lspconfig")
-local lspui_ok, lspui = pcall(require, "lspconfig.ui.windows")
-local border = require("ui.assets").border or "rounded"
-
-if not lspui_ok or not mason_lsp_ok or not mason_ok then
-	return
-end
-
-lspui.default_options.border = border
-vim.diagnostic.config({
-	float = { border = border },
-})
-
-mason.setup({
-	ui = {
-		icons = {
-			package_installed = "◍",
-			package_pending = "◍",
-			package_uninstalled = "◍",
-		},
-		border = require("ui.assets").border or "rounded",
-	},
-})
-
-mason_lsp.setup({
-	ensure_installed = {
-		"bashls",
-		"cssls",
-		"eslint",
-		"graphql",
-		"html",
-		"jsonls",
-		"lua_ls",
-		"prismals",
-		"tailwindcss",
-		"tsserver",
-		"emmet_ls",
-		"biome",
-		"clangd",
-		"gopls",
-		"rust_analyzer",
-		"pyright",
-	},
-	automatic_installation = true,
-})
-
 local lspconfig = require("lspconfig")
+local lspui_ok, lspui = pcall(require, "lspconfig.ui.windows")
+local border = require("ui.assets").border
 
 local handlers = {
 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 		silent = true,
-		border = require("ui.assets").border or "rounded",
+		border = border or "rounded",
 	}),
-	["textDocument/signatureHelp"] = vim.lsp.with(
-		vim.lsp.handlers.signature_help,
-		{ border = require("ui.assets").border or "rounded" }
-	),
+	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border or "rounded" }),
 	["textDocument/publishDiagnostics"] = vim.lsp.with(
 		vim.lsp.diagnostic.on_publish_diagnostics,
 		{ virtual_text = CONFIG.virtual_text }
@@ -135,4 +87,15 @@ require("mason-lspconfig").setup_handlers({
 			settings = require("lsp.servers.lua_ls").settings,
 		})
 	end,
+})
+
+-- UI
+
+if not lspui_ok then
+	return
+end
+
+lspui.default_options.border = border
+vim.diagnostic.config({
+	float = { border = border },
 })

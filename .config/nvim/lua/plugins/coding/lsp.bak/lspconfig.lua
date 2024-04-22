@@ -11,9 +11,10 @@ return {
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
 			local border = require("ui.assets").border
 
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
+			vim.lsp.handlers["textDocument/hover"] =
+				vim.lsp.with(vim.lsp.handlers.hover, { border = border or "rounded", title = "hover" })
 			vim.lsp.handlers["textDocument/signatureHelp"] =
-				vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
+				vim.lsp.with(vim.lsp.handlers.signature_help, { border = border or "rounded" })
 
 			local capabilities = cmp_nvim_lsp.default_capabilities()
 			local disabled = { "tsserver", "lua_ls" }
@@ -35,6 +36,7 @@ return {
 				capabilities = capabilities,
 			})
 		end,
+
 		opts = {
 			inlay_hints = {
 				enable = true,

@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
-local nvim = require("config.nvim")
+local bind_if = require("config.utils").bind_if
+local is_outside_vim = require("config.utils").is_outside_vim
 
 local act = wezterm.action
 local keymaps = {}
@@ -12,11 +13,11 @@ function keymaps.apply(config)
 	}
 
 	config.keys = {
-		-- Navigation
-		nvim.bind_if(nvim.is_outside_vim, "h", "CTRL", act.ActivatePaneDirection("Left")),
-		nvim.bind_if(nvim.is_outside_vim, "l", "CTRL", act.ActivatePaneDirection("Right")),
-		nvim.bind_if(nvim.is_outside_vim, "k", "CTRL", act.ActivatePaneDirection("Up")),
-		nvim.bind_if(nvim.is_outside_vim, "j", "CTRL", act.ActivatePaneDirection("Down")),
+		-- Nvim Navigation
+		bind_if(is_outside_vim, "h", "CTRL", act.ActivatePaneDirection("Left")),
+		bind_if(is_outside_vim, "l", "CTRL", act.ActivatePaneDirection("Right")),
+		bind_if(is_outside_vim, "k", "CTRL", act.ActivatePaneDirection("Up")),
+		bind_if(is_outside_vim, "j", "CTRL", act.ActivatePaneDirection("Down")),
 
 		-- Split
 		{
@@ -34,7 +35,7 @@ function keymaps.apply(config)
 		{
 			key = "q",
 			mods = "LEADER",
-			action = wezterm.action.CloseCurrentPane({ confirm = true }),
+			action = wezterm.action.CloseCurrentPane({ confirm = false }),
 		},
 
 		-- Send key
@@ -103,15 +104,6 @@ function keymaps.apply(config)
 			key = "c",
 			mods = "LEADER",
 			action = act.SpawnTab("DefaultDomain"),
-		},
-
-		-- Spawn glances???
-		{
-			key = "y",
-			mods = "CTRL",
-			action = act.SpawnCommandInNewTab({
-				args = { "glances" },
-			}),
 		},
 
 		-- Go to the next tab

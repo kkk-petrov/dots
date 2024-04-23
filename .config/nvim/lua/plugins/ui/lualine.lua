@@ -46,7 +46,7 @@ local lsp_progress = {
 
 local diagnostics = {
 	"diagnostics",
-	sources = { "nvim_diagnostic", "nvim_lsp" },
+	sources = { "nvim_diagnostic" },
 	symbols = { error = " ", warn = " ", hint = " ", info = " " },
 	sections = { "error", "warn", "info", "hint" },
 	padding = { left = 2, right = 1 },

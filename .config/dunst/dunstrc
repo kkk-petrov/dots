@@ -8,6 +8,10 @@ progress_bar = false
 vertical_alignment = center
 font = JetBrainsMono Nerd 10 
 
+mouse_left_click = close_current
+mouse_middle_click = context
+mouse_right_click = do_action
+
 width = (110, 300)
 height = 100
 offset = 15x15 
@@ -40,7 +44,7 @@ show_indicators = yes
 indicate_hidden = false 
 idle_threshold = 120s
 show_age_threshold = 60
-dmenu = /usr/bin/rofi -p dunst:
+dmenu = /usr/bin/fuzzel -p dunst:
 browser = /usr/bin/firefox --new-tab
 
 [urgency_low]

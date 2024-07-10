@@ -1,9 +1,9 @@
 {
   "hyprland/language": {
-      "format": "{}",
-      "format-en": "EN",
-      "format-ru": "RU",
-      "format-uk": "UA",
+    "format": "{}",
+    "format-en": "EN",
+    "format-ru": "RU",
+    "format-uk": "UA",
   },
   "hyprland/workspaces": {
     "all-outputs": true,
@@ -15,7 +15,6 @@
     "format-icons": {
       "urgent": "󰑊",
       "active": "󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊",
-      // "active": "",
       "default": "󰑊",
     },
     "persistent-workspaces": {
@@ -26,8 +25,8 @@
     "tooltip": false,
   },
   "hyprland/window": {
-      "format": "{}",
-      "separate-outputs": true
+    "format": "{}",
+    "separate-outputs": true
   },
   "battery": {
     "bat": "BAT0",
@@ -46,18 +45,6 @@
       " ",
       " ",
     ],
-    // "format-icons": [
-    // 󱐋
-    //   "󰁺 ",
-    //   "󰁻 ",
-    //   "󰁼 ",
-    //   "󰁽 ",
-    //   "󰁾 ",
-    //   "󰁿 ",
-    //   "󰂀 ",
-    //   "󰂁 ",
-    //   "󰁹 "
-    // ],
     "tooltip-format": "{timeTo}\n{capacity} % | {power} W"
   },
   "clock": {
@@ -74,34 +61,29 @@
       "󰤥 "
     ],
     "format-wifi": "{icon}",
-    "format-alt" : "{icon} {bandwidthTotalBits}",
+    "format-alt": "{icon} {bandwidthTotalBits}",
     "on-click-right": "nm-connection-editor",
     "tooltip-format": "{icon} {essid} {bandwidthTotalBytes}",
     "format-disconnected": "󰤭 "
   },
   "tray": {
-      "show-passive-items": true,
-      "icon-size": 14,
-      "spacing": 5,
+    "show-passive-items": true,
+    "icon-size": 14,
+    "spacing": 5,
   },
   "group/power": {
-      "orientation": "inherit",
-      "drawer": {
-          "transition-duration": 500,
-          "children-class": "not-power",
-          "transition-left-to-right": false,
-      },
-      "modules": [
-          "custom/power",
-          "custom/quit",
-          "custom/lock",
-          "custom/reboot",
-      ]
-  },
-  "custom/power": {
-      "format": " ",
-      "tooltip": false,
-      "on-click": "rofi -show power-menu -modi power-menu:~/.config/hypr/scripts/rofi-power-menu"
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-power",
+      "transition-left-to-right": false,
+    },
+    "modules": [
+      "custom/power",
+      "custom/quit",
+      "custom/lock",
+      "custom/reboot",
+    ]
   },
   "group/info": {
     "orientation": "horizontal",
@@ -111,10 +93,4 @@
       "battery",
     ]
   },
-  "wireplumber": {
-    "format": "{icon}",
-    "format-muted": "󱃓",
-    "on-click": "helvum",
-    "format-icons": ["", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"]
-  }
 }

@@ -11,10 +11,7 @@ export PATH="$PATH:$HOME/go/bin"
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 export EDITOR='nvim'
 export GTK_THEME='Adwaita:dark'
-export XCURSOR_THEME="Bibata-Modern-Ice"
+export XCURSOR_THEME="Bibata-Modern-Classic"
 export XCURSOR_SIZE=24
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
-
-export fl="$HOME/.wine/drive_c/Program Files/Image-Line/FL Studio 21/"
-export flkits="$HOME/.wine/drive_c/Program Files/Image-Line/FL Studio 21/Data/Patches/Kits/"
-export flloops="$HOME/.wine/drive_c/Program Files/Image-Line/FL Studio 21/Data/Patches/Loops/"
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket

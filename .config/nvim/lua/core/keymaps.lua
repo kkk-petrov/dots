@@ -35,59 +35,44 @@ set_keymap("n", "<leader>cq", ":LspRestart<CR>", "Restart LSP")
 set_keymap("n", "<leader>co", "<cmd>TSToolsOrganizeImports<CR>", "Organize imports")
 set_keymap("n", "<leader>cu", "<cmd>TSToolsRemoveUnusedImports<CR>", "Remove unused imports")
 set_keymap("n", "<leader>cm", "<cmd>TSToolsAddMissingImports<CR>", "Add missing imports")
-set_keymap(
-	"n",
-	"<leader>cf",
-	lsp_utils.format,
-	-- function ()
-	-- conform.format({
-	-- 	lsp_fallback = true,
-	-- 	async = false,
-	-- 	timeout_ms = 500,
-	-- })
-	-- end
-	"Format file"
-)
-set_keymap("n", "<leader>cs", lsp_utils.toggle_format_on_save, "Toggle format on save")
 
 -- Debug
 set_keymap("n", "<leader>dc", dap.continue, "Continue")
 set_keymap("n", "<pageup>", dap.continue, "Continue")
-
 set_keymap("n", "<leader>dt", dap.toggle_breakpoint, "Toggle breakpoint")
 set_keymap("n", "tt", dap.toggle_breakpoint, "Toggle breakpoint")
 set_keymap("n", "<leader>du", dapui.toggle, "Toggle UI")
 set_keymap("n", "<leader>da", function()
-	if vim.fn.filereadable(".vscode/launch.json") then
-		local dap_vscode = require("dap.ext.vscode")
-		dap_vscode.load_launchjs(nil, {
-			["pwa-node"] = langs,
-			["chrome"] = langs,
-			["pwa-chrome"] = langs,
-		})
-	end
-	require("dap").continue()
+  if vim.fn.filereadable(".vscode/launch.json") then
+    local dap_vscode = require("dap.ext.vscode")
+    dap_vscode.load_launchjs(nil, {
+      ["pwa-node"] = langs,
+      ["chrome"] = langs,
+      ["pwa-chrome"] = langs,
+    })
+  end
+  require("dap").continue()
 end, "Run")
 
 -- Diagnostics
 set_keymap("n", "<leader>xx", function()
-	trouble.toggle()
+  trouble.toggle("diagnostics")
 end, "File diagnostics")
 
 set_keymap("n", "<leader>xw", function()
-	trouble.toggle("workspace_diagnostics")
+  trouble.toggle("workspace_diagnostics")
 end, "Workspace diagnostics")
 
 set_keymap("n", "<leader>xd", function()
-	trouble.toggle("document_diagnostics")
+  trouble.toggle("document_diagnostics")
 end, "Document diagnostics")
 
 set_keymap("n", "<leader>xd", function()
-	trouble.toggle("quickfix")
+  trouble.toggle("quickfix")
 end, "Quick fix")
 
 set_keymap("n", "<leader>xd", function()
-	trouble.toggle("loclist")
+  trouble.toggle("loclist")
 end, "Location list")
 
 -- Todo
@@ -213,25 +198,25 @@ set_keymap("n", "<leader>z", "<cmd>ZenMode<CR>", "Zen mode")
 
 -- Luasnip
 set_keymap({ "i" }, "<C-l>", function()
-	ls.expand_or_jump()
+  ls.expand_or_jump()
 end, "Jump forward or expand a snippet")
 
 set_keymap({ "i", "s" }, "<C-h>", function()
-	ls.jump(-1)
+  ls.jump(-1)
 end, "Jump backward")
 
 set_keymap({ "i", "s" }, "<C-E>", function()
-	if ls.choice_active() then
-		ls.change_choice(1)
-	end
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
 end, "Change active choise")
 
 set_keymap("n", "<leader>q", function()
-	if vim.fn.empty(vim.fn.filter(vim.fn.getwininfo(), "v:val.quickfix")) == 1 then
-		vim.cmd("copen")
-	else
-		vim.cmd("cclose")
-	end
+  if vim.fn.empty(vim.fn.filter(vim.fn.getwininfo(), "v:val.quickfix")) == 1 then
+    vim.cmd("copen")
+  else
+    vim.cmd("cclose")
+  end
 end, "Toggle quicklist")
 
 -- Don't yank on delete char
@@ -244,16 +229,16 @@ set_keymap("v", "X", '"_X', "Delete char")
 set_keymap("v", "p", '"_dP', "Paste")
 
 set_keymap("v", "<leader>f", function()
-	conform.format({
-		lsp_fallback = true,
-		async = false,
-		timeout_ms = 500,
-	})
+  conform.format({
+    lsp_fallback = true,
+    async = false,
+    timeout_ms = 500,
+  })
 end, "Format selection")
 
 -- Linting
 set_keymap("n", "<leader>xl", function()
-	lint.try_lint()
+  lint.try_lint()
 end, "Lint file")
 
 -- Find and replace
@@ -261,8 +246,23 @@ set_keymap("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', "Toggle
 set_keymap("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', "Search current word")
 set_keymap("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', "Search current word")
 set_keymap(
-	"n",
-	"<leader>sp",
-	'<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
-	"Search on current file"
+  "n",
+  "<leader>sp",
+  '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
+  "Search on current file"
 )
+
+set_keymap("i", "<C-O>", "<esc>o", "Begin a new line below the cursor and insert text")
+
+local function toggle_theme()
+  require("catppuccin")
+
+  local current = vim.api.nvim_get_option_value("background", {});
+  if string.find(current, "light") then
+    vim.cmd("colorscheme catppuccin-mocha")
+    require("ui.highlights").reload_highlights()
+  else
+    vim.cmd("colorscheme catppuccin-latte")
+  end
+end
+set_keymap("n", "<leader>ut", toggle_theme, "Toggle theme")

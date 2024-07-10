@@ -1,5 +1,5 @@
 @theme "/dev/null"
-@import "./dark.rasi"
+@import "./theme.rasi"
 
 configuration {
   display-drun: "Applications:";

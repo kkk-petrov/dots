@@ -1,0 +1,19 @@
+.tray {
+  .container {}
+
+  .icons {
+    padding: 6px 6px 6px 8px;
+    background: rgba(#99AEB3, .4);
+    border-radius: 10px;
+    color: rgba(#151523, .8);
+
+    .icon {
+
+
+
+      &.bat {}
+
+      &.wifi {}
+    }
+  }
+}

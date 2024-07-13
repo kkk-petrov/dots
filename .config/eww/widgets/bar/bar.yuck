@@ -1,0 +1,27 @@
+(include "./widgets/workspaces/workspaces.yuck")
+(include "./widgets/separator/separator.yuck")
+(include "./widgets/tray/tray.yuck")
+
+(defpoll time :interval "10s"
+  "date '+%H:%M'") ;; "date '+%H:%M %b %d, %Y'")
+
+(defwidget left []
+  (box :class "left" :orientation "h" :space-evenly false :spacing 0 :halign "start"
+    (workspaces)))
+
+(defwidget center []
+  (box :class "center" :orientation "h" :space-evenly false :spacing 15 :halign "center"
+    (dock)))
+
+(defwidget right []
+  (box :class "right" :orientation "h" :space-evenly false :spacing 8 :halign "end"
+    (tray)
+    (separator) 
+    time))
+
+(defwidget bar []
+  (centerbox :orientation "h"
+    (left)
+    (center)
+    (right)))
+

@@ -1,0 +1,24 @@
+;; Workspaces for Hyprland
+
+(deflisten workspaces :initial `[{"id": 1}, {"id": 2}, {"id": 3}]`
+  "~/.config/eww/widgets/workspaces/scripts/workspaces.sh")
+(deflisten active :initial "1"
+  "~/.config/eww/widgets/workspaces/scripts/active-workspace.sh")
+
+(defwidget icon [is-active]
+        (image :path {is-active ? "${EWW_CONFIG_DIR}/widgets/workspaces/icons/active.svg" : "${EWW_CONFIG_DIR}/widgets/workspaces/icons/inactive.svg"} 
+               :class {is-active ? "image active" : "image"} 
+               :image-width  {is-active ? 32 : 7}
+               :image-height {is-active ? 32 : 7}))
+
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly false 
+       :halign "center"
+       :valign "center"
+       :spacing 8
+    (for workspace in workspaces
+      (button :class {workspace.id == active ? "active" : ""}
+              :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (icon :is-active {workspace.id == active})))))

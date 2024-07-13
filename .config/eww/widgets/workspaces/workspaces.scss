@@ -1,0 +1,25 @@
+$tr: all 150ms ease;
+
+.workspaces {
+  background: rgba($background, .2);
+  padding: 0px 10px;
+  border-radius: 10px;
+
+  button {
+    transition: $tr, letter-spacing 0s ease;
+
+    .image {
+
+      &.active {}
+    }
+
+    &:hover {
+      color: #D35D6E;
+    }
+
+    &.active {
+      color: #D35D6E;
+    }
+
+  }
+}

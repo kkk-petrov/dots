@@ -1,0 +1,24 @@
+(include "./widgets/bar/bar.yuck")
+(include "./widgets/dock/dock.yuck")
+
+(defwindow bar
+  :monitor 0
+  :exclusive true 
+  :namespace "bar"
+  :stacking "fg"
+  :focusable false
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :anchor "bottom center")
+  (bar))
+
+(defwindow dock 
+  :monitor 0
+  :namespace "dock"
+  :stacking "fg"
+  :focusable false
+  :geometry (geometry :x "0%"
+                      :y "1%"
+                      :anchor "bottom center")
+  (dock))

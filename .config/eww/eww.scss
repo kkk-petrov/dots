@@ -1,0 +1,15 @@
+@import "theme/light.scss";
+@import "widgets/bar/bar.scss";
+@import "widgets/dock/dock.scss";
+@import "widgets/workspaces/workspaces.scss";
+@import "widgets/separator/separator.scss";
+@import "widgets/tray/tray.scss";
+
+$tr: all 150ms ease;
+
+* {
+  all: unset;
+
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+}

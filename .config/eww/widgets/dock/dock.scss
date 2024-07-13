@@ -1,0 +1,13 @@
+.dock {
+  border-radius: 5px;
+  color: $text;
+
+  .image {
+    padding: 5px 10px;
+
+    &.active {
+      background: rgba($background, 0.2);
+    }
+  }
+
+}

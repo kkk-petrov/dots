@@ -1,0 +1,44 @@
+(include "./widgets/separator/separator.yuck")
+
+(defpoll bat :interval "10s"  "~/.config/eww/widgets/tray/scripts/sysinfo.sh bat") (defpoll batIcon :interval "10s"  "~/.config/eww/widgets/tray/scripts/sysinfo.sh baticon")
+(defpoll bright :interval "1s"  "~/.config/eww/widgets/tray/scripts/sysinfo.sh bli")
+(defpoll brightIcon :interval "1s"  "~/.config/eww/widgets/tray/scripts/sysinfo.sh bliicon")
+(defpoll vol :interval "1s"  "~/.config/eww/widgets/tray/scripts/sysinfo.sh vol")
+(defpoll volIcon :interval "1s"  "~/.config/eww/widgets/tray/scripts/sysinfo.sh volicon")
+(defpoll wifi :interval "1s" "~/.config/eww/widgets/tray/scripts/sysinfo.sh wifi")
+(defpoll wifiIcon :interval "1s" "~/.config/eww/widgets/tray/scripts/sysinfo.sh wifiicon")
+(defpoll lang :interval "100ms" "~/.config/eww/widgets/tray/scripts/kblayout.sh")
+(defvar tray false)
+
+(defwidget tray []
+  (eventbox :cursor "pointer"
+            :class "tray"
+            :onhover "${EWW_CMD} update tray=true"
+            :onhoverlost "${EWW_CMD} update tray=false"
+    (box :class "container"
+                 :spacing 5
+                 :space-evenly false
+                 :valign "center"
+                 :halign "center"
+                 :orientation "h"
+          (revealer :reveal {tray}
+                    :transition "slideleft"
+                    :duration "500ms"
+              (systray :icon-size 18 
+                       :prepend-new true
+                       :orientation "h"
+                       :spacing 10))
+    (separator)
+    (box :class "icons"
+         :spacing 10
+         :space-evenly false
+         :valign "center"
+         :halign "center"
+         :orientation "h"
+
+        (label :text {lang} 
+               :class "icon lang")
+        (label :text {batIcon} 
+               :class "icon bat")
+        (label :text {wifiIcon} 
+               :class "icon wifi")))))

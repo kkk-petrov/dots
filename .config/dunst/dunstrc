@@ -29,17 +29,17 @@ min_icon_size = 0
 max_icon_size = 64
 icon_corner_radius = 10
 icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/actions/:/usr/share/icons/Papirus-Dark/16x16/animations/:/usr/share/icons/Papirus-Dark/16x16/apps/:/usr/share/icons/Papirus-Dark/16x16/categories/:/usr/share/icons/Papirus-Dark/16x16/emblems/:/usr/share/icons/Papirus-Dark/16x16/emotes/:/usr/share/icons/Papirus-Dark/16x16/devices/mimetypes:/usr/share/icons/Papirus-Dark/16x16/panel/:/usr/share/icons/Papirus-Dark/16x16/places/
-icon_theme = "Adwaita, breeze, papirus"
+icon_theme = "Adwaita, breeze, Papirus"
 enable_recursive_icon_lookup = true
 
-timeout = 3
+timeout = 2
 sort = true 
 markup = full
 line_height = 0
 stack_duplicates = false
 hide_duplicate_count = true 
 word_wrap = false
-ellipsize = end
+ellipsize = end 
 show_indicators = yes
 indicate_hidden = false 
 idle_threshold = 120s
@@ -48,11 +48,11 @@ dmenu = /usr/bin/fuzzel -p dunst:
 browser = /usr/bin/firefox --new-tab
 
 [urgency_low]
-background = "#1e1e2e"
+background = "#151523"
 foreground = "#99AEB3"
 
 [urgency_normal]
-background = "#1e1e2e"
+background = "#151523"
 foreground = "#99AEB3"
 
 [urgency_critical]

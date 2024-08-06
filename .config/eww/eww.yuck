@@ -1,5 +1,5 @@
 (include "./widgets/bar/bar.yuck")
-(include "./widgets/dock/dock.yuck")
+(include "./widgets/powermenu/powermenu.yuck")
 
 (defwindow bar
   :monitor 0
@@ -10,5 +10,19 @@
   :geometry (geometry :x "0%"
                       :y "0%"
                       :width "100%"
-                      :anchor "bottom center")
-  (bar))
+                      :height "20px"
+                      :anchor "top center")
+                      (bar))
+
+(defwindow powermenu
+  :monitor 0
+  :exclusive true 
+  :namespace "powermenu"
+  :stacking "fg"
+  :focusable false
+  :geometry (geometry :x "10px"
+                      :y "10px"
+                      :width "400px"
+                      :height "300px"
+                      :anchor "bottom right")
+                      (powermenu))

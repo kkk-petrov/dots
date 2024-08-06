@@ -1,27 +1,36 @@
 (include "./widgets/workspaces/workspaces.yuck")
-(include "./widgets/separator/separator.yuck")
+(include "./widgets/dock/dock.yuck")
 (include "./widgets/tray/tray.yuck")
+(include "./widgets/datetime/datetime.yuck")
+(include "./widgets/separator/separator.yuck")
 
-(defpoll time :interval "10s"
-  "date '+%H:%M'") ;; "date '+%H:%M %b %d, %Y'")
+(defvar dock false)
 
 (defwidget left []
-  (box :class "left" :orientation "h" :space-evenly false :spacing 0 :halign "start"
-    (workspaces)))
+  (box :class "left" :orientation "h" :space-evenly false :spacing 10 :halign "start" 
+    (workspaces)
+  ))
 
-(defwidget center []
-  (box :class "center" :orientation "h" :space-evenly false :spacing 15 :halign "center"
-    (dock)))
+(defwidget center [] 
+  "")
+  ;; (box :class "center" :orientation "h" :space-evenly false :halign "center"
+  ;;   (eventbox :onhover "${EWW_CMD} update dock=true"
+  ;;             :onhoverlost "${EWW_CMD} update dock=false"
+  ;;     (revealer :reveal {dock}
+  ;;               :transition "crossfade"
+  ;;               :duration "400ms"
+  ;;       (dock)))))
 
 (defwidget right []
   (box :class "right" :orientation "h" :space-evenly false :spacing 8 :halign "end"
     (tray)
-    (separator) 
-    time))
+    (separator)
+    (time)
+    ))
 
 (defwidget bar []
-  (centerbox :orientation "h"
-    (left)
-    (center)
-    (right)))
+    (centerbox :orientation "h"
+      (left)
+      (center)
+      (right)))
 

@@ -15,6 +15,7 @@
     "format-icons": {
       "urgent": "󰑊",
       "active": "󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊",
+      // "active": "",
       "default": "󰑊",
     },
     "persistent-workspaces": {
@@ -45,6 +46,18 @@
       " ",
       " ",
     ],
+    // "format-icons": [
+    // 󱐋
+    //   "󰁺 ",
+    //   "󰁻 ",
+    //   "󰁼 ",
+    //   "󰁽 ",
+    //   "󰁾 ",
+    //   "󰁿 ",
+    //   "󰂀 ",
+    //   "󰂁 ",
+    //   "󰁹 "
+    // ],
     "tooltip-format": "{timeTo}\n{capacity} % | {power} W"
   },
   "clock": {
@@ -85,6 +98,11 @@
       "custom/reboot",
     ]
   },
+  "custom/power": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "rofi -show power-menu -modi power-menu:~/.config/hypr/scripts/rofi-power-menu"
+  },
   "group/info": {
     "orientation": "horizontal",
     "modules": [
@@ -93,4 +111,20 @@
       "battery",
     ]
   },
+  "wireplumber": {
+    "format": "{icon}",
+    "format-muted": "󱃓",
+    "on-click": "helvum",
+    "format-icons": [
+      "",
+      "󰪞",
+      "󰪟",
+      "󰪠",
+      "󰪡",
+      "󰪢",
+      "󰪣",
+      "󰪤",
+      "󰪥"
+    ]
+  }
 }

@@ -138,13 +138,14 @@ get_wifi() {
     fi
 }
 
-## Get Wifi Icon
 get_wifiicon() {
-    local wifi=`nmcli con show --active`
-    if [[ -z "$wifi" || -z `iwgetid -r` ]]; then
-        echo "󰤨 "
+    # Check if there's a connected network
+    local wifi=$(iwctl station list | grep 'connected')
+
+    if [[ -z "$wifi" ]]; then
+      echo "󰤭 "
     else
-        echo "󰤭 "
+      echo "󰤨 "
     fi
 }
 

@@ -1,45 +1,16 @@
-(defvar apps '[{
-    "id": 0,
-    "name": "Spotify",
-    "command": "/bin/spotify-launcher",
-    "image": "/usr/share/icons/Papirus/32x32/apps/spotify.svg",
-    "is_running": false
-  },
-  {
-    "id": 1,
-    "name": "Telegram",
-    "command": "/bin/telegram-desktop",
-    "image": "/usr/share/icons/Papirus/32x32/apps/telegram-desktop.svg",
-    "is_running": false
-
-  },
-  {
-    "id": 2,
-    "name": "Wezterm",
-    "command": "/bin/wezterm",
-    "image": "/usr/share/icons/Papirus/32x32/apps/org.wezfurlong.wezterm.svg",
-    "is_running": true 
-  },
-  {
-    "id": 3,
-    "name": "Firefox",
-    "command": "/bin/firefox-developer-edition",
-    "image": "/usr/share/icons/Papirus/32x32/apps/firefox-developer-edition.svg",
-    "is_running": true
-
-  }]')
+(include "./widgets/dock/apps.yuck")
 
 (defwidget dock []
-  (box :class "dock"
-       :orientation "h"
-       :space-evenly true 
-       :halign "center"
-       :spacing 2
-    (for app in apps
-      (eventbox :cursor "pointer"
-                :onclick {app.command}
-        (box :class {app.is_running ? "image active" : "image"}
-          (image :path { app.image } 
-                 :image-width 32 
-                 :image-height 32))))))
-  
+    (box :class "dock"
+         :orientation "h"
+         :space-evenly true 
+         :halign "center"
+         :spacing 2
+      (for app in apps
+        (eventbox :cursor "pointer"
+                  :onclick {app.command}
+                  :class "eventbox"
+            (box :class {app.is_running ? "image active" : "image"}
+              (image :class "icon" :path { app.image } 
+                     :image-width 24
+                     :image-height 24))))))

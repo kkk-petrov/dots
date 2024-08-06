@@ -5,6 +5,7 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 # SOURCES 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/kb.zsh
+source $ZSH/custom/eww.zsh
 source <(fzf --zsh)
 
 # ALIASES
@@ -27,13 +28,16 @@ alias pac='paru -Scc'                           # clean cache
 
 alias cd='z'
 alias ls='eza'
-alias rm='trash'
 alias hx='helix'
+alias rm='trash'
 alias cb='wl-copy'
+alias gc="git clone"
 alias pp='ping 8.8.8.8'
-alias sr='systemctl soft-reboot'
 alias mpvp="mpvpaper '*'"
 alias pick="hyprpicker -a -f "
+alias sr='systemctl soft-reboot'
+alias xgnome="XINITRC=~/xsessions/gnome startx"
+alias xplasma="XINITRC=~/xsessions/plasma startx"
 
 # EXEC
 setopt appendhistory

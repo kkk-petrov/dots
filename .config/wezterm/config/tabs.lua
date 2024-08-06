@@ -13,9 +13,9 @@ local function set_color(color_d, color_l)
 end
 
 local colors = {
-  bg = set_color("#151523", "#D9DBDE"),
-  active = set_color("#232039", "#EFF1F5"),
-  inactive = set_color("#151526", "#cdcdcd"),
+  bg = set_color("#151523", "#DBD5D0"),
+  active = set_color("#232039", "#E9E5E2"),
+  inactive = set_color("#151526", "#D1CFCE"),
   hover = set_color("#202030", "#cdcdcd"),
   fg = set_color("#99AEB3", "#898686"),
 }

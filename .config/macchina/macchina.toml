@@ -1,9 +1,0 @@
-interface = "wlan0"
-long_uptime = true
-long_shell = false
-long_kernel = false
-current_shell = true
-physical_cores = false
-theme = "Main"
-
-show = ["Machine", "Processor", "Distribution", "DesktopEnvironment", "Terminal", "Shell", "Uptime"]

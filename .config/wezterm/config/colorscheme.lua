@@ -11,12 +11,12 @@ local function get_theme(appearance)
   if appearance:find 'Dark' then
     return {
       theme = 'Catppuccin Mocha',
-      cursor = 'Bibata-Modern-Ice'
+      cursor = 'Bibata-Modern-Classic'
     }
   else
     return {
       theme = 'Catppuccin Latte',
-      cursor = 'Bibata-Modern-Classic'
+      cursor = 'Bibata-Modern-Ice'
     }
   end
 end

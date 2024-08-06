@@ -1,18 +1,12 @@
 .bar {
-  background-color: rgba($background, 0.2);
+  /* background-color: rgba(#1e1e2e, 1); // dark .5 */
+  background-color: rgba($background, 1); // dark .5
 
   color: $text;
-  padding: 0px 20px;
 
-  /* .left { */
-  /*   background: red; */
-  /* } */
-  /**/
-  /* .center { */
-  /*   background: green; */
-  /* } */
-  /**/
-  /* .right { */
-  /*   background: blue; */
-  /* } */
+  .left,
+  .right {
+    padding: 2px 10px;
+  }
+
 }

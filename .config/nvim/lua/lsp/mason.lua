@@ -35,6 +35,7 @@ mason_lsp.setup({
     "gopls",
     "rust_analyzer",
     "pyright",
+    "kotlin_language_server",
   },
   automatic_installation = true,
 })

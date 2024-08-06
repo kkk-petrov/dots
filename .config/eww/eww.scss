@@ -1,15 +1,23 @@
-@import "theme/light.scss";
+@import "theme/dark.scss";
 @import "widgets/bar/bar.scss";
 @import "widgets/dock/dock.scss";
 @import "widgets/workspaces/workspaces.scss";
 @import "widgets/separator/separator.scss";
 @import "widgets/tray/tray.scss";
-
-$tr: all 150ms ease;
+@import "widgets/datetime/datetime.scss";
+@import "widgets/utils/utils.scss";
+@import "widgets/powermenu/powermenu.scss";
 
 * {
   all: unset;
 
   font-family: "JetBrainsMono Nerd Font";
   font-size: 14px;
+}
+
+tooltip {
+  all: unset;
+  background: rgba($background, 0.5);
+  color: $text;
+  border-radius: 5px;
 }

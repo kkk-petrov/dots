@@ -75,6 +75,10 @@ set_keymap("n", "<leader>xd", function()
   trouble.toggle("loclist")
 end, "Location list")
 
+set_keymap("n", "<leader>a", function()
+  trouble.toggle("symbols")
+end, "LSP Symbols")
+
 -- Todo
 set_keymap("n", "<leader>cT", "<cmd>TodoTelescope<cr>", "Todo telescope")
 set_keymap("n", "<leader>xt", "<cmd>TodoTrouble<cr>", "Todo trouble")
@@ -104,9 +108,9 @@ set_keymap("n", "<leader>gb", telescope.git_bcommits, "Git branches")
 set_keymap("n", "<leader>gt", telescope.git_stash, "Git stash")
 
 -- Aerial
-set_keymap("n", "<leader>a", "<cmd>AerialToggle! right<CR>", "Aerial")
-set_keymap("n", "{", "<cmd>AerialPrev<CR>", "Aerial previous")
-set_keymap("n", "}", "<cmd>AerialNext<CR>", "Aerial next")
+-- set_keymap("n", "<leader>a", "<cmd>AerialToggle! right<CR>", "Aerial")
+-- set_keymap("n", "{", "<cmd>AerialPrev<CR>", "Aerial previous")
+-- set_keymap("n", "}", "<cmd>AerialNext<CR>", "Aerial next")
 
 -- Create new file
 set_keymap("n", "<leader>fn", "<cmd>enew<cr>", "New file")

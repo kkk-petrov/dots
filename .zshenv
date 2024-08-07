@@ -1,4 +1,6 @@
 # ENV
+export SCRIPTS=$HOME/dots/assets/scripts
+export ICONS=$HOME/dots/assets/icons
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 export BUN_INSTALL="$HOME/.bun"

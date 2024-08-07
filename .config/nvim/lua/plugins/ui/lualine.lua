@@ -30,7 +30,7 @@ local conditions = {
 local mode = {
   "mode",
   padding = { left = 2, right = 2 },
-  separator = { left = separators.rounded.left, right = separators.rounded.right },
+  separator = { left = "", right = separators.rounded.right },
   icon = "",
   color = { gui = "italic" },
 }

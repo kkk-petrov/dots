@@ -39,7 +39,7 @@ alias sr='systemctl soft-reboot'
 alias xgnome="XINITRC=~/xsessions/gnome startx"
 alias xplasma="XINITRC=~/xsessions/plasma startx"
 
-# EXEC
+# OTHER
 setopt appendhistory
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"

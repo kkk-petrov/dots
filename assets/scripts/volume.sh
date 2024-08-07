@@ -1,7 +1,7 @@
 #!/bin/bash
-VOL_UP="$HOME/.config/dunst/icons/volup.svg"
-VOL_DOWN="$HOME/.config/dunst/icons/voldown.svg"
-VOL_MUTE="$HOME/.config/dunst/icons/volmute.svg"
+VOL_UP="../icons/volup.svg"
+VOL_DOWN="../icons/voldown.svg"
+VOL_MUTE="../icons/volmute.svg"
 
 case $1 in
 up)

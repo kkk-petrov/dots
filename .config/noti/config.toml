@@ -1,42 +1,36 @@
 [general]
 font = [ "JetBrainsMono Nerd Font", 20 ]
-anchor = "top right"
+anchor = "bottom right"
 offset = [10, 20]
-width = 400
-height = 90
-gap = 10
+width = 300
+height = 80
+gap = 5
 sorting = "default"
 
 [display]
 markup = true
-padding = { horizontal = 32, vertical = 5 }
-timeout = 5000
-ellipsize_at = "middle" 
-alignment = "left"
+padding = { horizontal = 32 }
+timeout = 3000
 
 [display.image]
-max_size = 64
+max_size = 48
 margin = 0
 
 [display.border]
 size = 2
-color = "#CDD6F430"
-radius = 10
+color = "#9F99CC"
+radius = 50
 
 [display.colors]
 low = { background = "#151523", foreground = "#CDD6F4" }
 normal = { background = "#1e1e2e", foreground = "#CDD6F4" }
-critical = { background = "#f38ba8", foreground = "#cdd6f4" }
+critical = { background = "#f38ba8", foreground = "#151523" }
+
+[display.text]
+justification = "left"
+margin = { left = 20 }
+wrap = false
+ellipsize_at = "middle" 
 
 [display.title]
-justification = "left"
-alignment = "left"
-margin = { left = 20 }
-wrap = false
 style = "bold"
-
-[display.body]
-alignment = "left"
-justification = "left"
-margin = { left = 20 }
-wrap = false

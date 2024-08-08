@@ -42,7 +42,6 @@ spinner $backup_pid
 
 ln -sf $(realpath .zshrc) ~/.zshrc
 ln -sf $(realpath .zshenv) ~/.zshenv
-ln -sf $(realpath ./.config/btop) ~/.config/btop
 ln -sf $(realpath ./.config/eww) ~/.config/eww
 ln -sf $(realpath ./.config/helix) ~/.config/helix
 ln -sf $(realpath ./.config/hypr) ~/.config/hypr
@@ -50,7 +49,6 @@ ln -sf $(realpath ./.config/noti) ~/.config/noti
 ln -sf $(realpath ./.config/nvim) ~/.config/nvim
 ln -sf $(realpath ./.config/rofi) ~/.config/rofi
 ln -sf $(realpath ./.config/waybar) ~/.config/waybar
-ln -sf $(realpath ./.config/WebCord) ~/.config/WebCord
 ln -sf $(realpath ./.config/wezterm) ~/.config/wezterm
 ln -sf $(realpath ./firefox/) $FIREFOX_PROFILE_PATH/chrome
 

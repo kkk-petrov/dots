@@ -52,7 +52,7 @@ ln -sf $(realpath ./.config/rofi) ~/.config/rofi
 ln -sf $(realpath ./.config/waybar) ~/.config/waybar
 ln -sf $(realpath ./.config/WebCord) ~/.config/WebCord
 ln -sf $(realpath ./.config/wezterm) ~/.config/wezterm
-ln -sf $(realpath ./firefox) $FIREFOX_PROFILE_PATH/chrome
+ln -sf $(realpath ./firefox/) $FIREFOX_PROFILE_PATH/chrome
 
 echo "Created backup in ~/dots-backup-$time"
 echo "Successful installation"
